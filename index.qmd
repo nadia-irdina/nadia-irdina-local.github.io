@@ -1,0 +1,42 @@
+---
+title: "The Walking Dead Data Analysis"
+---
+
+# The Walking Dead
+
+[The Walking Dead](https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series) is an American TV show that ran for 11 seasons since 2010 and ended with its last episode in 2022. It is set in a <b> post-apocalyptic world </b> and follows a group of survivors. 
+
+The group expands, travels and goes through many moral and physical challenges. Over time, members of this "family" get killed off, resulting in a <b>high emotional reaction</b> among its audience.
+
+## Audience Reception
+
+This analysis aims to understand the implications of having a loyal fanbase, having a dramatic and gory genre, and having a long run time. It is expected for the show to undergo ups and downs. 
+
+## Data Set 
+
+The data I am working with is taken from [Kaggle](https://www.kaggle.com/datasets/bcruise/the-walking-dead-episodes?resource=download), created by Bill Cruise and updated 9 months ago. 
+
+It has 2 csv files: episodes and IMDB
+
+Below are the glimpses of the dataset. 
+```{r, eval=F,echo=F}
+options(repos = "https://cloud.r-project.org")
+install.packages("tidyverse")
+library(tidyverse)
+```
+
+### Episodes
+```{r, eval=T,echo=F}
+library(tibble)
+twd_episodes <- read.csv("the_walking_dead_episodes.csv")
+twd_episodes <- as_tibble(twd_episodes)
+glimpse(twd_episodes)
+```
+
+### IMDB Ratings
+```{r, eval=T,echo=F}
+library(tibble)
+twd_imdb <- read.csv("the_walking_dead_imdb.csv")
+twd_imdb <- as_tibble(twd_imdb)
+glimpse(twd_imdb)
+```
