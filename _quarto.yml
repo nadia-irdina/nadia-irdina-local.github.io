@@ -4,17 +4,23 @@ project:
 
 website:
   title: "nadia-irdina.github.io"
+  back-to-top-navigation: true
   navbar:
+    background: "#68552D"
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - href: about.qmd
+        text: About Me
+      - href: DataStory.qmd
+        text: Data Story
 
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
+    linkcolor: "#68552D"
 
 editor: visual
 

@@ -4,12 +4,14 @@ title: "About Me"
 
 # Self-Introduction
 
-Welcome to my webpage! My name is <b>[Nadia Irdina Yuzaimi.]{style="color: #800080;"}</b> I'm 21 years old and I'm a proud Year 2 undergrad student majoring in [Communications and New Media.]{style="colour:blue"}
+Welcome to my webpage! My name is <b>[Nadia Irdina Yuzaimi.]{style="color: #800080;"}</b> I'm 21 years old and I'm a proud Year 2 undergrad student majoring in [Communications and New Media.]{style="color:#00008B;"}
+
+## Interests
 
 I like learning about pop-culture, digital media and analysing fictional content. I spend of my free time listening to podcasts, namely from the "true crime" and "lifestyle" genre.
 
 This is why I am interested in delivering data insights pertaining to fictional content.
 
-```{r, out.width="100%", out.height= "auto",echo=F,eval=TRUE,fig.cap="This is me"}
+```{r, out.height= "100%",out.width= "100%",echo= F,eval=TRUE,fig.cap="This is my most recent media venture"}
 knitr::include_graphics("IMG_4243.jpg")
 ```

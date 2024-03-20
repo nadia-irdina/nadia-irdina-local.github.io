@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>nadia-irdina.github.io - The Walking Dead Data Analysis</title>
+<title>nadia-irdina.github.io - Welcome!</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -89,6 +89,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./about.html" rel="" target="">
  <span class="menu-text">About Me</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./DataStory.html" rel="" target="">
+ <span class="menu-text">Data Story</span></a>
+  </li>  
 </ul>
             <div class="quarto-navbar-tools ms-auto">
 </div>
@@ -101,28 +105,14 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#the-walking-dead" id="toc-the-walking-dead" class="nav-link active" data-scroll-target="#the-walking-dead">The Walking Dead</a>
-  <ul class="collapse">
-  <li><a href="#audience-reception" id="toc-audience-reception" class="nav-link" data-scroll-target="#audience-reception">Audience Reception</a></li>
-  <li><a href="#data-set" id="toc-data-set" class="nav-link" data-scroll-target="#data-set">Data Set</a>
-  <ul class="collapse">
-  <li><a href="#episodes" id="toc-episodes" class="nav-link" data-scroll-target="#episodes">Episodes</a></li>
-  <li><a href="#imdb-ratings" id="toc-imdb-ratings" class="nav-link" data-scroll-target="#imdb-ratings">IMDB Ratings</a></li>
-  </ul></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">The Walking Dead Data Analysis</h1>
+<h1 class="title">Welcome!</h1>
 </div>
 
 
@@ -137,58 +127,21 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="the-walking-dead" class="level1">
-<h1>The Walking Dead</h1>
-<p><a href="#the-walking-dead">The Walking Dead</a>(https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series) is an American TV show that ran for 11 seasons since 2010 and ended with its last episode in 2022. It is set in a <b> post-apocalyptic world </b> and follows a group of survivors.</p>
-<p>The group expands, travels and goes through many moral and physical challenges. Over time, members of this “family” get killed off, resulting in a <b>high emotional reaction</b> among its audience.</p>
-<section id="audience-reception" class="level2">
-<h2 class="anchored" data-anchor-id="audience-reception">Audience Reception</h2>
-<p>This analysis aims to understand the implications of having a loyal fanbase, having a dramatic and gory genre, and having a long run time. It is expected for the show to undergo ups and downs.</p>
-</section>
-<section id="data-set" class="level2">
-<h2 class="anchored" data-anchor-id="data-set">Data Set</h2>
-<p>The data I am working with is taken from <a href="https://www.kaggle.com/datasets/bcruise/the-walking-dead-episodes?resource=download">Kaggle</a>, created by Bill Cruise and updated 9 months ago.</p>
-<p>It has 2 csv files: episodes and IMDB</p>
-<p>Below are the glimpses of the dataset.</p>
-<section id="episodes" class="level3">
-<h3 class="anchored" data-anchor-id="episodes">Episodes</h3>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 177
-Columns: 8
-$ season                &lt;int&gt; 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …
-$ episode_num_in_season &lt;int&gt; 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,…
-$ episode_num_overall   &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1…
-$ title                 &lt;chr&gt; "Days Gone Bye", "Guts", "Tell It to the Frogs",…
-$ directed_by           &lt;chr&gt; "Frank Darabont", "Michelle MacLaren", "Gwyneth …
-$ written_by            &lt;chr&gt; "Teleplay by: Frank Darabont", "Frank Darabont",…
-$ original_air_date     &lt;chr&gt; "2010-10-31", "2010-11-07", "2010-11-14", "2010-…
-$ us_viewers            &lt;dbl&gt; 5350000, 4710000, 5070000, 4750000, 5560000, 597…</code></pre>
-</div>
-</div>
-</section>
-<section id="imdb-ratings" class="level3">
-<h3 class="anchored" data-anchor-id="imdb-ratings">IMDB Ratings</h3>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 177
-Columns: 7
-$ season            &lt;int&gt; 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2…
-$ episode_num       &lt;int&gt; 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,…
-$ title             &lt;chr&gt; "Days Gone Bye", "Guts", "Tell It to the Frogs", "Va…
-$ original_air_date &lt;chr&gt; "2010-10-31", "2010-11-07", "2010-11-14", "2010-11-2…
-$ imdb_rating       &lt;dbl&gt; 9.2, 8.6, 8.2, 8.5, 8.1, 8.6, 8.5, 7.9, 8.3, 7.5, 8.…
-$ total_votes       &lt;int&gt; 27463, 17278, 15815, 15449, 14856, 16184, 14515, 131…
-$ desc              &lt;chr&gt; "Deputy Sheriff Rick Grimes awakens from a coma, and…</code></pre>
-</div>
-</div>
+<style>
+.title {
+  font-family: Dead Kansas, sans-serif;
+  text-align: center; 
+}
+</style>
+<p style="text-align: center;">
+<em>Hello! This is a website created for NM2207: Computational Media Literacy.</em>
+</p>
+<p>Click on <a href="https://nadia-irdina.github.io/nadia-irdina-local.github.io/DataStory.html"><em>“Data Story”</em></a> to learn more about my favourite American TV show: “The Walking Dead”, which is based on a well-loved comic by Robert Kirkman. If you want to know more about me, you can check out the [<em>“About Me”</em>] (https://nadia-irdina.github.io/nadia-irdina-local.github.io/about.html) page.</p>
+<p><strong>Thank you!</strong></p>
 
 
-</section>
-</section>
-</section>
 
-</main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -2,16 +2,16 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "The Walking Dead Data Analysis",
+    "title": "Welcome!",
     "section": "",
-    "text": "The Walking Dead(https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series) is an American TV show that ran for 11 seasons since 2010 and ended with its last episode in 2022. It is set in a  post-apocalyptic world  and follows a group of survivors.\nThe group expands, travels and goes through many moral and physical challenges. Over time, members of this “family” get killed off, resulting in a high emotional reaction among its audience.\n\n\nThis analysis aims to understand the implications of having a loyal fanbase, having a dramatic and gory genre, and having a long run time. It is expected for the show to undergo ups and downs.\n\n\n\nThe data I am working with is taken from Kaggle, created by Bill Cruise and updated 9 months ago.\nIt has 2 csv files: episodes and IMDB\nBelow are the glimpses of the dataset.\n\n\n\n\nRows: 177\nColumns: 8\n$ season                &lt;int&gt; 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …\n$ episode_num_in_season &lt;int&gt; 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,…\n$ episode_num_overall   &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1…\n$ title                 &lt;chr&gt; \"Days Gone Bye\", \"Guts\", \"Tell It to the Frogs\",…\n$ directed_by           &lt;chr&gt; \"Frank Darabont\", \"Michelle MacLaren\", \"Gwyneth …\n$ written_by            &lt;chr&gt; \"Teleplay by: Frank Darabont\", \"Frank Darabont\",…\n$ original_air_date     &lt;chr&gt; \"2010-10-31\", \"2010-11-07\", \"2010-11-14\", \"2010-…\n$ us_viewers            &lt;dbl&gt; 5350000, 4710000, 5070000, 4750000, 5560000, 597…\n\n\n\n\n\n\n\nRows: 177\nColumns: 7\n$ season            &lt;int&gt; 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2…\n$ episode_num       &lt;int&gt; 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,…\n$ title             &lt;chr&gt; \"Days Gone Bye\", \"Guts\", \"Tell It to the Frogs\", \"Va…\n$ original_air_date &lt;chr&gt; \"2010-10-31\", \"2010-11-07\", \"2010-11-14\", \"2010-11-2…\n$ imdb_rating       &lt;dbl&gt; 9.2, 8.6, 8.2, 8.5, 8.1, 8.6, 8.5, 7.9, 8.3, 7.5, 8.…\n$ total_votes       &lt;int&gt; 27463, 17278, 15815, 15449, 14856, 16184, 14515, 131…\n$ desc              &lt;chr&gt; \"Deputy Sheriff Rick Grimes awakens from a coma, and…"
+    "text": "Hello! This is a website created for NM2207: Computational Media Literacy.\n\nClick on “Data Story” to learn more about my favourite American TV show: “The Walking Dead”, which is based on a well-loved comic by Robert Kirkman. If you want to know more about me, you can check out the [“About Me”] (https://nadia-irdina.github.io/nadia-irdina-local.github.io/about.html) page.\nThank you!\n\n\n\n Back to top"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About Me",
     "section": "",
-    "text": "Self-Introduction\nWelcome to my webpage! My name is Nadia Irdina Yuzaimi. I’m 21 years old and I’m a proud Year 2 undergrad student majoring in Communications and New Media.\nI like learning about pop-culture, digital media and analysing fictional content. I spend of my free time listening to podcasts, namely from the “true crime” and “lifestyle” genre.\nThis is why I am interested in delivering data insights pertaining to fictional content.\n\n\n\n\n\nThis is me"
+    "text": "Welcome to my webpage! My name is Nadia Irdina Yuzaimi. I’m 21 years old and I’m a proud Year 2 undergrad student majoring in Communications and New Media.\n\n\nI like learning about pop-culture, digital media and analysing fictional content. I spend of my free time listening to podcasts, namely from the “true crime” and “lifestyle” genre.\nThis is why I am interested in delivering data insights pertaining to fictional content.\n\n\n\n\n\nThis is my most recent media venture"
   },
   {
     "objectID": "index.html#audience-reception",
@@ -26,5 +26,61 @@
     "title": "The Walking Dead Data Analysis",
     "section": "",
     "text": "The data I am working with is taken from Kaggle, created by Bill Cruise and updated 9 months ago.\nIt has 2 csv files: episodes and IMDB\nBelow are the glimpses of the dataset.\n\n\n\n\nRows: 177\nColumns: 8\n$ season                &lt;int&gt; 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …\n$ episode_num_in_season &lt;int&gt; 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,…\n$ episode_num_overall   &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1…\n$ title                 &lt;chr&gt; \"Days Gone Bye\", \"Guts\", \"Tell It to the Frogs\",…\n$ directed_by           &lt;chr&gt; \"Frank Darabont\", \"Michelle MacLaren\", \"Gwyneth …\n$ written_by            &lt;chr&gt; \"Teleplay by: Frank Darabont\", \"Frank Darabont\",…\n$ original_air_date     &lt;chr&gt; \"2010-10-31\", \"2010-11-07\", \"2010-11-14\", \"2010-…\n$ us_viewers            &lt;dbl&gt; 5350000, 4710000, 5070000, 4750000, 5560000, 597…\n\n\n\n\n\n\n\nRows: 177\nColumns: 7\n$ season            &lt;int&gt; 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2…\n$ episode_num       &lt;int&gt; 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,…\n$ title             &lt;chr&gt; \"Days Gone Bye\", \"Guts\", \"Tell It to the Frogs\", \"Va…\n$ original_air_date &lt;chr&gt; \"2010-10-31\", \"2010-11-07\", \"2010-11-14\", \"2010-11-2…\n$ imdb_rating       &lt;dbl&gt; 9.2, 8.6, 8.2, 8.5, 8.1, 8.6, 8.5, 7.9, 8.3, 7.5, 8.…\n$ total_votes       &lt;int&gt; 27463, 17278, 15815, 15449, 14856, 16184, 14515, 131…\n$ desc              &lt;chr&gt; \"Deputy Sheriff Rick Grimes awakens from a coma, and…"
+  },
+  {
+    "objectID": "Data Story.html",
+    "href": "Data Story.html",
+    "title": "Data Story",
+    "section": "",
+    "text": "The Walking Dead(https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series) is an American TV show that ran for 11 seasons since 2010 and ended with its last episode in 2022. It is set in a  post-apocalyptic world  and follows a group of survivors.\nThe group expands, travels and goes through many moral and physical challenges. Over time, members of this “family” get killed off, resulting in a high emotional reaction among its audience.\n\n\nThis analysis aims to understand the implications of having a loyal fanbase, having a dramatic and gory genre, and having a long run time. It is expected for the show to undergo ups and downs.\n\n\n\nThe data I am working with is taken from Kaggle, created by Bill Cruise and updated 9 months ago.\nIt has 2 csv files: episodes and IMDB\nBelow are the glimpses of the dataset.\n\n\n\n\nRows: 177\nColumns: 8\n$ season                &lt;int&gt; 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …\n$ episode_num_in_season &lt;int&gt; 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,…\n$ episode_num_overall   &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1…\n$ title                 &lt;chr&gt; \"Days Gone Bye\", \"Guts\", \"Tell It to the Frogs\",…\n$ directed_by           &lt;chr&gt; \"Frank Darabont\", \"Michelle MacLaren\", \"Gwyneth …\n$ written_by            &lt;chr&gt; \"Teleplay by: Frank Darabont\", \"Frank Darabont\",…\n$ original_air_date     &lt;chr&gt; \"2010-10-31\", \"2010-11-07\", \"2010-11-14\", \"2010-…\n$ us_viewers            &lt;dbl&gt; 5350000, 4710000, 5070000, 4750000, 5560000, 597…\n\n\n\n\n\n\n\nRows: 177\nColumns: 7\n$ season            &lt;int&gt; 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2…\n$ episode_num       &lt;int&gt; 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,…\n$ title             &lt;chr&gt; \"Days Gone Bye\", \"Guts\", \"Tell It to the Frogs\", \"Va…\n$ original_air_date &lt;chr&gt; \"2010-10-31\", \"2010-11-07\", \"2010-11-14\", \"2010-11-2…\n$ imdb_rating       &lt;dbl&gt; 9.2, 8.6, 8.2, 8.5, 8.1, 8.6, 8.5, 7.9, 8.3, 7.5, 8.…\n$ total_votes       &lt;int&gt; 27463, 17278, 15815, 15449, 14856, 16184, 14515, 131…\n$ desc              &lt;chr&gt; \"Deputy Sheriff Rick Grimes awakens from a coma, and…"
+  },
+  {
+    "objectID": "Data Story.html#audience-reception",
+    "href": "Data Story.html#audience-reception",
+    "title": "Data Story",
+    "section": "",
+    "text": "This analysis aims to understand the implications of having a loyal fanbase, having a dramatic and gory genre, and having a long run time. It is expected for the show to undergo ups and downs."
+  },
+  {
+    "objectID": "Data Story.html#data-set",
+    "href": "Data Story.html#data-set",
+    "title": "Data Story",
+    "section": "",
+    "text": "The data I am working with is taken from Kaggle, created by Bill Cruise and updated 9 months ago.\nIt has 2 csv files: episodes and IMDB\nBelow are the glimpses of the dataset.\n\n\n\n\nRows: 177\nColumns: 8\n$ season                &lt;int&gt; 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …\n$ episode_num_in_season &lt;int&gt; 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,…\n$ episode_num_overall   &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1…\n$ title                 &lt;chr&gt; \"Days Gone Bye\", \"Guts\", \"Tell It to the Frogs\",…\n$ directed_by           &lt;chr&gt; \"Frank Darabont\", \"Michelle MacLaren\", \"Gwyneth …\n$ written_by            &lt;chr&gt; \"Teleplay by: Frank Darabont\", \"Frank Darabont\",…\n$ original_air_date     &lt;chr&gt; \"2010-10-31\", \"2010-11-07\", \"2010-11-14\", \"2010-…\n$ us_viewers            &lt;dbl&gt; 5350000, 4710000, 5070000, 4750000, 5560000, 597…\n\n\n\n\n\n\n\nRows: 177\nColumns: 7\n$ season            &lt;int&gt; 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2…\n$ episode_num       &lt;int&gt; 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,…\n$ title             &lt;chr&gt; \"Days Gone Bye\", \"Guts\", \"Tell It to the Frogs\", \"Va…\n$ original_air_date &lt;chr&gt; \"2010-10-31\", \"2010-11-07\", \"2010-11-14\", \"2010-11-2…\n$ imdb_rating       &lt;dbl&gt; 9.2, 8.6, 8.2, 8.5, 8.1, 8.6, 8.5, 7.9, 8.3, 7.5, 8.…\n$ total_votes       &lt;int&gt; 27463, 17278, 15815, 15449, 14856, 16184, 14515, 131…\n$ desc              &lt;chr&gt; \"Deputy Sheriff Rick Grimes awakens from a coma, and…"
+  },
+  {
+    "objectID": "DataStory.html",
+    "href": "DataStory.html",
+    "title": "Data Story",
+    "section": "",
+    "text": "banner source: https://wallpapers.com/the-walking-dead-background\n\n\n\n\nThe Walking Dead(https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series) is an American TV show that ran for 11 seasons since 2010 and ended with its last episode in 2022. It is set in a  post-apocalyptic world  and follows a group of survivors.\nThe group expands, travels and goes through many moral and physical challenges. Over time, members of this “family” get killed off, resulting in a high emotional reaction among its audience.\n\n\nThis analysis aims to understand the implications of having a loyal fanbase, having a dramatic and gory genre, and having a long run time. It is expected for the show to undergo ups and downs.\n\n\n\nWhat are some factors that may affect the longevity (and popularity) of the American TV show: “The Walking Dead”?\n\n\n\nThe data I am working with is taken from Kaggle, created by Bill Cruise and updated 9 months ago.\nIt has 2 csv files: episodes and IMDB\nBelow are the glimpses of the dataset.\n\n\n\n\nRows: 177\nColumns: 8\n$ season                &lt;int&gt; 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …\n$ episode_num_in_season &lt;int&gt; 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,…\n$ episode_num_overall   &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1…\n$ title                 &lt;chr&gt; \"Days Gone Bye\", \"Guts\", \"Tell It to the Frogs\",…\n$ directed_by           &lt;chr&gt; \"Frank Darabont\", \"Michelle MacLaren\", \"Gwyneth …\n$ written_by            &lt;chr&gt; \"Teleplay by: Frank Darabont\", \"Frank Darabont\",…\n$ original_air_date     &lt;chr&gt; \"2010-10-31\", \"2010-11-07\", \"2010-11-14\", \"2010-…\n$ us_viewers            &lt;dbl&gt; 5350000, 4710000, 5070000, 4750000, 5560000, 597…\n\n\n\n\n\n\n\nRows: 177\nColumns: 7\n$ season            &lt;int&gt; 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2…\n$ episode_num       &lt;int&gt; 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,…\n$ title             &lt;chr&gt; \"Days Gone Bye\", \"Guts\", \"Tell It to the Frogs\", \"Va…\n$ original_air_date &lt;chr&gt; \"2010-10-31\", \"2010-11-07\", \"2010-11-14\", \"2010-11-2…\n$ imdb_rating       &lt;dbl&gt; 9.2, 8.6, 8.2, 8.5, 8.1, 8.6, 8.5, 7.9, 8.3, 7.5, 8.…\n$ total_votes       &lt;int&gt; 27463, 17278, 15815, 15449, 14856, 16184, 14515, 131…\n$ desc              &lt;chr&gt; \"Deputy Sheriff Rick Grimes awakens from a coma, and…"
+  },
+  {
+    "objectID": "DataStory.html#audience-reception",
+    "href": "DataStory.html#audience-reception",
+    "title": "Data Story",
+    "section": "",
+    "text": "This analysis aims to understand the implications of having a loyal fanbase, having a dramatic and gory genre, and having a long run time. It is expected for the show to undergo ups and downs."
+  },
+  {
+    "objectID": "DataStory.html#data-set",
+    "href": "DataStory.html#data-set",
+    "title": "Data Story",
+    "section": "",
+    "text": "The data I am working with is taken from Kaggle, created by Bill Cruise and updated 9 months ago.\nIt has 2 csv files: episodes and IMDB\nBelow are the glimpses of the dataset.\n\n\n\n\nRows: 177\nColumns: 8\n$ season                &lt;int&gt; 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …\n$ episode_num_in_season &lt;int&gt; 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,…\n$ episode_num_overall   &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1…\n$ title                 &lt;chr&gt; \"Days Gone Bye\", \"Guts\", \"Tell It to the Frogs\",…\n$ directed_by           &lt;chr&gt; \"Frank Darabont\", \"Michelle MacLaren\", \"Gwyneth …\n$ written_by            &lt;chr&gt; \"Teleplay by: Frank Darabont\", \"Frank Darabont\",…\n$ original_air_date     &lt;chr&gt; \"2010-10-31\", \"2010-11-07\", \"2010-11-14\", \"2010-…\n$ us_viewers            &lt;dbl&gt; 5350000, 4710000, 5070000, 4750000, 5560000, 597…\n\n\n\n\n\n\n\nRows: 177\nColumns: 7\n$ season            &lt;int&gt; 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2…\n$ episode_num       &lt;int&gt; 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,…\n$ title             &lt;chr&gt; \"Days Gone Bye\", \"Guts\", \"Tell It to the Frogs\", \"Va…\n$ original_air_date &lt;chr&gt; \"2010-10-31\", \"2010-11-07\", \"2010-11-14\", \"2010-11-2…\n$ imdb_rating       &lt;dbl&gt; 9.2, 8.6, 8.2, 8.5, 8.1, 8.6, 8.5, 7.9, 8.3, 7.5, 8.…\n$ total_votes       &lt;int&gt; 27463, 17278, 15815, 15449, 14856, 16184, 14515, 131…\n$ desc              &lt;chr&gt; \"Deputy Sheriff Rick Grimes awakens from a coma, and…"
+  },
+  {
+    "objectID": "about.html#interests",
+    "href": "about.html#interests",
+    "title": "About Me",
+    "section": "",
+    "text": "I like learning about pop-culture, digital media and analysing fictional content. I spend of my free time listening to podcasts, namely from the “true crime” and “lifestyle” genre.\nThis is why I am interested in delivering data insights pertaining to fictional content.\n\n\n\n\n\nThis is my most recent media venture"
+  },
+  {
+    "objectID": "DataStory.html#main-question",
+    "href": "DataStory.html#main-question",
+    "title": "Data Story",
+    "section": "",
+    "text": "What are some factors that may affect the longevity (and popularity) of the American TV show: “The Walking Dead”?"
   }
 ]
