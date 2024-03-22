@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>nadia-irdina.github.io - Welcome!</title>
+<title>nadia-irdina.github.io - Data Insights</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -82,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="./index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -94,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Data Story</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./insights.html" rel="" target="">
+    <a class="nav-link active" href="./insights.html" rel="" target="" aria-current="page">
  <span class="menu-text">Insights</span></a>
   </li>  
 </ul>
@@ -109,14 +143,40 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#glimpse-of-episodes" id="toc-glimpse-of-episodes" class="nav-link active" data-scroll-target="#glimpse-of-episodes">Glimpse of Episodes</a></li>
+  <li><a href="#comparing-viewership-over-time" id="toc-comparing-viewership-over-time" class="nav-link" data-scroll-target="#comparing-viewership-over-time">Comparing Viewership Over Time</a>
+  <ul class="collapse">
+  <li><a href="#comparing-viewership-over-time-grouped-by-season" id="toc-comparing-viewership-over-time-grouped-by-season" class="nav-link" data-scroll-target="#comparing-viewership-over-time-grouped-by-season">Comparing Viewership Over Time, grouped by Season</a></li>
+  </ul></li>
+  <li><a href="#who-are-the-directors-and-what-is-their-impact-to-the-show" id="toc-who-are-the-directors-and-what-is-their-impact-to-the-show" class="nav-link" data-scroll-target="#who-are-the-directors-and-what-is-their-impact-to-the-show">Who are the Directors and what is their impact to the show?</a>
+  <ul class="collapse">
+  <li><a href="#seasonal-change" id="toc-seasonal-change" class="nav-link" data-scroll-target="#seasonal-change">Seasonal change</a></li>
+  </ul></li>
+  <li><a href="#who-are-the-writers-and-what-is-their-impact" id="toc-who-are-the-writers-and-what-is-their-impact" class="nav-link" data-scroll-target="#who-are-the-writers-and-what-is-their-impact">Who are the Writers and what is their impact?</a>
+  <ul class="collapse">
+  <li><a href="#seasonal-change-1" id="toc-seasonal-change-1" class="nav-link" data-scroll-target="#seasonal-change-1">Seasonal change</a></li>
+  </ul></li>
+  <li><a href="#average-imdb-score-per-season" id="toc-average-imdb-score-per-season" class="nav-link" data-scroll-target="#average-imdb-score-per-season">Average IMDB score per Season</a></li>
+  <li><a href="#average-imdb-score-per-show-writer" id="toc-average-imdb-score-per-show-writer" class="nav-link" data-scroll-target="#average-imdb-score-per-show-writer">Average IMDB score per show Writer</a></li>
+  <li><a href="#average-imdb-score-per-show-director" id="toc-average-imdb-score-per-show-director" class="nav-link" data-scroll-target="#average-imdb-score-per-show-director">Average IMDB score per show Director</a></li>
+  <li><a href="#other-factors-that-affect-popularity" id="toc-other-factors-that-affect-popularity" class="nav-link" data-scroll-target="#other-factors-that-affect-popularity">Other factors that affect popularity</a>
+  <ul class="collapse">
+  <li><a href="#shortest-and-longest-season" id="toc-shortest-and-longest-season" class="nav-link" data-scroll-target="#shortest-and-longest-season">Shortest and Longest Season</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Welcome!</h1>
+<h1 class="title">Data Insights</h1>
 </div>
 
 
@@ -131,19 +191,119 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<style>
-.title {
-  font-family: Dead Kansas, sans-serif;
-  text-align: center; 
-}
-</style>
-<p style="text-align: center;">
-</p><p><em>Hello! This is a website created for NM2207: Computational Media Literacy.</em></p>
-<p></p>
-<p>Click on <a href="https://nadia-irdina.github.io/nadia-irdina-local.github.io/DataStory.html"><em>“Data Story”</em></a> to learn more about my favourite American TV show: “The Walking Dead”, which is based on a well-loved comic by Robert Kirkman. If you want to know more about me, you can check out the <a href="https://nadia-irdina.github.io/nadia-irdina-local.github.io/about.html"><em>“About Me”</em></a> page.</p>
-<p><strong>Thank you!</strong></p>
+<section id="glimpse-of-episodes" class="level2">
+<h2 class="anchored" data-anchor-id="glimpse-of-episodes">Glimpse of Episodes</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>twd_episodes <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"the_walking_dead_episodes.csv"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>twd_episodes<span class="sc">$</span>season <span class="ot">&lt;-</span> <span class="fu">as.double</span>(twd_episodes<span class="sc">$</span>season)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(twd_episodes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 177
+Columns: 8
+$ season                &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …
+$ episode_num_in_season &lt;int&gt; 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,…
+$ episode_num_overall   &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1…
+$ title                 &lt;chr&gt; "Days Gone Bye", "Guts", "Tell It to the Frogs",…
+$ directed_by           &lt;chr&gt; "Frank Darabont", "Michelle MacLaren", "Gwyneth …
+$ written_by            &lt;chr&gt; "Teleplay by: Frank Darabont", "Frank Darabont",…
+$ original_air_date     &lt;chr&gt; "2010-10-31", "2010-11-07", "2010-11-14", "2010-…
+$ us_viewers            &lt;dbl&gt; 5350000, 4710000, 5070000, 4750000, 5560000, 597…</code></pre>
+</div>
+</div>
+</section>
+<section id="comparing-viewership-over-time" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-viewership-over-time">Comparing Viewership Over Time</h2>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="insights_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<section id="comparing-viewership-over-time-grouped-by-season" class="level3">
+<h3 class="anchored" data-anchor-id="comparing-viewership-over-time-grouped-by-season">Comparing Viewership Over Time, grouped by Season</h3>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="insights_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="who-are-the-directors-and-what-is-their-impact-to-the-show" class="level2">
+<h2 class="anchored" data-anchor-id="who-are-the-directors-and-what-is-their-impact-to-the-show">Who are the Directors and what is their impact to the show?</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>twd_episodes <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(directed_by) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">episode_count=</span><span class="fu">n</span>(),<span class="at">average_viewcount=</span><span class="fu">mean</span>(us_viewers)) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(episode_count))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 55 × 3
+   directed_by           episode_count average_viewcount
+   &lt;chr&gt;                         &lt;int&gt;             &lt;dbl&gt;
+ 1 Greg Nicotero                    37          9494324.
+ 2 Michael E. Satrazemis            17          9205294.
+ 3 David Boyd                       13          8150769.
+ 4 Ernest Dickerson                 10         10462000 
+ 5 Billy Gierhart                    6          9845000 
+ 6 Guy Ferland                       6          8785000 
+ 7 Laura Belsey                      6          2855000 
+ 8 Jeffrey F. January                5          9174000 
+ 9 Michael Cudlitz                   4          3270000 
+10 Sharat Raju                       4          2232500 
+# ℹ 45 more rows</code></pre>
+</div>
+</div>
+<p>For More in-depth breakdowns of what each director does, scroll through here: <iframe height="400" width="100%" frameborder="no" src="https://starrynad.shinyapps.io/TwdDirector/"> </iframe></p>
+<section id="seasonal-change" class="level3">
+<h3 class="anchored" data-anchor-id="seasonal-change">Seasonal change</h3>
+</section>
+</section>
+<section id="who-are-the-writers-and-what-is-their-impact" class="level2">
+<h2 class="anchored" data-anchor-id="who-are-the-writers-and-what-is-their-impact">Who are the Writers and what is their impact?</h2>
+<ul>
+<li>count</li>
+<li>mean viewership</li>
+</ul>
+<section id="seasonal-change-1" class="level3">
+<h3 class="anchored" data-anchor-id="seasonal-change-1">Seasonal change</h3>
+</section>
+</section>
+<section id="average-imdb-score-per-season" class="level2">
+<h2 class="anchored" data-anchor-id="average-imdb-score-per-season">Average IMDB score per Season</h2>
+</section>
+<section id="average-imdb-score-per-show-writer" class="level2">
+<h2 class="anchored" data-anchor-id="average-imdb-score-per-show-writer">Average IMDB score per show Writer</h2>
+</section>
+<section id="average-imdb-score-per-show-director" class="level2">
+<h2 class="anchored" data-anchor-id="average-imdb-score-per-show-director">Average IMDB score per show Director</h2>
+</section>
+<section id="other-factors-that-affect-popularity" class="level2">
+<h2 class="anchored" data-anchor-id="other-factors-that-affect-popularity">Other factors that affect popularity</h2>
+<section id="shortest-and-longest-season" class="level3">
+<h3 class="anchored" data-anchor-id="shortest-and-longest-season">Shortest and Longest Season</h3>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<ul>
+<li>most popular season</li>
+<li>most popular writer</li>
+<li>most popular director</li>
+<li>IMDB vs Viewership</li>
+<li>Length of Show potential downfall</li>
+</ul>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

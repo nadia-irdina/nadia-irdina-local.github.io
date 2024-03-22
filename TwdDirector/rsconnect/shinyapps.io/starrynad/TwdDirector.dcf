@@ -1,0 +1,12 @@
+name: TwdDirector
+title: TwdDirector
+username: starrynad
+account: starrynad
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 11562896
+bundleId: 8404992
+url: https://starrynad.shinyapps.io/TwdDirector/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

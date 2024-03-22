@@ -2,16 +2,21 @@
 title: Welcome!
 mainfont: Times New Roman 
 ---
+
+```{=html}
 <style>
 .title {
   font-family: Dead Kansas, sans-serif;
   text-align: center; 
 }
 </style>
+```
+<p style="text-align: center;">
 
-<p style="text-align: center;"><em>Hello! This is a website created for NM2207: Computational Media Literacy.</em></p>
+<em>Hello! This is a website created for NM2207: Computational Media Literacy.</em>
 
+</p>
 
-Click on [*"Data Story"*](https://nadia-irdina.github.io/nadia-irdina-local.github.io/DataStory.html) to learn more about my favourite American TV show: "The Walking Dead", which is based on a well-loved comic by Robert Kirkman. If you want to know more about me, you can check out the [*"About Me"*] (https://nadia-irdina.github.io/nadia-irdina-local.github.io/about.html) page.
+Click on [*"Data Story"*](https://nadia-irdina.github.io/nadia-irdina-local.github.io/DataStory.html) to learn more about my favourite American TV show: "The Walking Dead", which is based on a well-loved comic by Robert Kirkman. If you want to know more about me, you can check out the [*"About Me"*](https://nadia-irdina.github.io/nadia-irdina-local.github.io/about.html) page.
 
 **Thank you!**

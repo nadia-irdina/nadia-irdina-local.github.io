@@ -1,0 +1,70 @@
+---
+title: " Data Insights"
+format: html
+editor: visual
+---
+## Glimpse of Episodes
+```{r}
+library(tidyverse)
+library(ggplot2)
+twd_episodes <- read.csv("the_walking_dead_episodes.csv")
+twd_episodes$season <- as.double(twd_episodes$season)
+glimpse(twd_episodes)
+```
+
+## Comparing Viewership Over Time 
+
+```{r, eval=T, echo=F, error=T}
+twd_episodes$original_air_date <- as.Date(twd_episodes$original_air_date, format = "%Y-%m-%d")
+# extract year
+twd_episodes$air_year<- format(twd_episodes$original_air_date, "%Y")
+# plot
+ggplot(data=twd_episodes, #data layer
+       mapping = aes(x=air_year, y=us_viewers)) +
+  geom_point() + #geometric layer
+  labs(title="Viewers in the US over Time",
+       x= "Air Date(year)", y= "Viewcount")
+```
+
+### Comparing Viewership Over Time, grouped by Season
+```{r, eval=T,echo=F}
+ggplot(data=twd_episodes, #data layer
+       mapping = aes(x=air_year, y=us_viewers, color=factor(season))) +
+  geom_point() + #geometric layer
+  labs(title="Viewers in the US over Time",
+       x= "Air Date(year)", y= "Viewcount")
+```
+## Who are the Directors and what is their impact to the show?
+``` {r}
+twd_episodes %>% group_by(directed_by) %>% summarise(episode_count=n(),average_viewcount=mean(us_viewers)) %>% arrange(desc(episode_count))
+```
+
+For More in-depth breakdowns of what each director does, scroll through here:
+<iframe height="400" width="100%" frameborder="no" src="https://starrynad.shinyapps.io/TwdDirector/">
+</iframe> 
+
+
+### Seasonal change
+
+## Who are the Writers and what is their impact? 
+- count
+- mean viewership
+
+### Seasonal change
+
+## Average IMDB score per Season
+
+## Average IMDB score per show Writer 
+
+## Average IMDB score per show Director 
+
+## Other factors that affect popularity 
+
+### Shortest and Longest Season 
+
+# Conclusion 
+- most popular season 
+- most popular writer 
+- most popular director 
+- IMDB vs Viewership 
+- Length of Show potential downfall

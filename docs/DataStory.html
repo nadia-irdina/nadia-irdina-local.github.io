@@ -93,6 +93,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link active" href="./DataStory.html" rel="" target="" aria-current="page">
  <span class="menu-text">Data Story</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./insights.html" rel="" target="">
+ <span class="menu-text">Insights</span></a>
+  </li>  
 </ul>
             <div class="quarto-navbar-tools ms-auto">
 </div>
@@ -115,9 +119,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#main-question" id="toc-main-question" class="nav-link" data-scroll-target="#main-question">Main Question:</a></li>
   <li><a href="#data-set" id="toc-data-set" class="nav-link" data-scroll-target="#data-set">Data Set</a>
   <ul class="collapse">
-  <li><a href="#episodes" id="toc-episodes" class="nav-link" data-scroll-target="#episodes">Episodes</a></li>
-  <li><a href="#imdb-ratings" id="toc-imdb-ratings" class="nav-link" data-scroll-target="#imdb-ratings">IMDB Ratings</a></li>
+  <li><a href="#names-of-variables-within-episodes-dataset" id="toc-names-of-variables-within-episodes-dataset" class="nav-link" data-scroll-target="#names-of-variables-within-episodes-dataset">Names of Variables within Episodes Dataset</a></li>
+  <li><a href="#names-of-variables-within-imdb-dataset" id="toc-names-of-variables-within-imdb-dataset" class="nav-link" data-scroll-target="#names-of-variables-within-imdb-dataset">Names of Variables within IMDB Dataset</a></li>
   </ul></li>
+  <li><a href="#answering-the-question" id="toc-answering-the-question" class="nav-link" data-scroll-target="#answering-the-question">Answering the Question:</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -154,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p><a href="#the-walking-dead">The Walking Dead</a>(https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series) is an American TV show that ran for 11 seasons since 2010 and ended with its last episode in 2022. It is set in a <b> post-apocalyptic world </b> and follows a group of survivors.</p>
+<p><a href="https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series)">The Walking Dead</a> is an American TV show that ran for 11 seasons since 2010 and ended with its last episode in 2022. It is set in a <b> post-apocalyptic world </b> and follows a group of survivors.</p>
 <p>The group expands, travels and goes through many moral and physical challenges. Over time, members of this “family” get killed off, resulting in a <b>high emotional reaction</b> among its audience.</p>
 <section id="audience-reception" class="level2">
 <h2 class="anchored" data-anchor-id="audience-reception">Audience Reception</h2>
@@ -162,48 +167,41 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="main-question" class="level2">
 <h2 class="anchored" data-anchor-id="main-question">Main Question:</h2>
-<p><strong>What are some factors that may affect the longevity (and popularity) of the American TV show: “The Walking Dead”?</strong></p>
+<p><strong>What are some factors that may affect the longevity (and popularity) of the TV show: “The Walking Dead”?</strong></p>
 </section>
 <section id="data-set" class="level2">
 <h2 class="anchored" data-anchor-id="data-set">Data Set</h2>
 <p>The data I am working with is taken from <a href="https://www.kaggle.com/datasets/bcruise/the-walking-dead-episodes?resource=download">Kaggle</a>, created by Bill Cruise and updated 9 months ago.</p>
 <p>It has 2 csv files: episodes and IMDB</p>
-<p>Below are the glimpses of the dataset.</p>
-<section id="episodes" class="level3">
-<h3 class="anchored" data-anchor-id="episodes">Episodes</h3>
+<iframe height="400" width="100%" frameborder="no" src="https://starrynad.shinyapps.io/Twd_datasetsApp/">
+</iframe>
+<section id="names-of-variables-within-episodes-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="names-of-variables-within-episodes-dataset">Names of Variables within Episodes Dataset</h3>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 177
-Columns: 8
-$ season                &lt;int&gt; 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …
-$ episode_num_in_season &lt;int&gt; 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,…
-$ episode_num_overall   &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1…
-$ title                 &lt;chr&gt; "Days Gone Bye", "Guts", "Tell It to the Frogs",…
-$ directed_by           &lt;chr&gt; "Frank Darabont", "Michelle MacLaren", "Gwyneth …
-$ written_by            &lt;chr&gt; "Teleplay by: Frank Darabont", "Frank Darabont",…
-$ original_air_date     &lt;chr&gt; "2010-10-31", "2010-11-07", "2010-11-14", "2010-…
-$ us_viewers            &lt;dbl&gt; 5350000, 4710000, 5070000, 4750000, 5560000, 597…</code></pre>
+<pre><code>[1] "season"                "episode_num_in_season" "episode_num_overall"  
+[4] "title"                 "directed_by"           "written_by"           
+[7] "original_air_date"     "us_viewers"           </code></pre>
 </div>
 </div>
 </section>
-<section id="imdb-ratings" class="level3">
-<h3 class="anchored" data-anchor-id="imdb-ratings">IMDB Ratings</h3>
+<section id="names-of-variables-within-imdb-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="names-of-variables-within-imdb-dataset">Names of Variables within IMDB Dataset</h3>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 177
-Columns: 7
-$ season            &lt;int&gt; 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2…
-$ episode_num       &lt;int&gt; 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,…
-$ title             &lt;chr&gt; "Days Gone Bye", "Guts", "Tell It to the Frogs", "Va…
-$ original_air_date &lt;chr&gt; "2010-10-31", "2010-11-07", "2010-11-14", "2010-11-2…
-$ imdb_rating       &lt;dbl&gt; 9.2, 8.6, 8.2, 8.5, 8.1, 8.6, 8.5, 7.9, 8.3, 7.5, 8.…
-$ total_votes       &lt;int&gt; 27463, 17278, 15815, 15449, 14856, 16184, 14515, 131…
-$ desc              &lt;chr&gt; "Deputy Sheriff Rick Grimes awakens from a coma, and…</code></pre>
+<pre><code>[1] "season"            "episode_num"       "title"            
+[4] "original_air_date" "imdb_rating"       "total_votes"      
+[7] "desc"             </code></pre>
 </div>
 </div>
-
-
 </section>
+</section>
+<section id="answering-the-question" class="level2">
+<h2 class="anchored" data-anchor-id="answering-the-question">Answering the Question:</h2>
+<p>How to answer?: - comparing variable: <em>“us_viewers”</em> against <em>“original_air_date.”</em> - comparing variable: <em>“directed_by”</em> against <em>“us_viewers”</em> - comparing variable: <em>“written_by”</em> against <em>“us_viewers”</em> - comparing variable: count of <em>“season”</em> against <em>“us_viewers”</em></p>
+<p><em>Click on the [“Insights”] page to see results.</em></p>
+
+
 </section>
 </section>
 
