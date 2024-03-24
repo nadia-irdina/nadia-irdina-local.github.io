@@ -28,39 +28,115 @@ ggplot(data=twd_episodes, #data layer
 
 ### Comparing Viewership Over Time, grouped by Season
 ```{r, eval=T,echo=F}
+library(ggplot2)
 ggplot(data=twd_episodes, #data layer
        mapping = aes(x=air_year, y=us_viewers, color=factor(season))) +
   geom_point() + #geometric layer
   labs(title="Viewers in the US over Time",
        x= "Air Date(year)", y= "Viewcount")
 ```
+
 ## Who are the Directors and what is their impact to the show?
 ``` {r}
 twd_episodes %>% group_by(directed_by) %>% summarise(episode_count=n(),average_viewcount=mean(us_viewers)) %>% arrange(desc(episode_count))
 ```
 
-For More in-depth breakdowns of what each director does, scroll through here:
+For more in-depth breakdowns of what each director does, scroll through here:
 <iframe height="400" width="100%" frameborder="no" src="https://starrynad.shinyapps.io/TwdDirector/">
 </iframe> 
 
-
-### Seasonal change
-
+```{r, eval=T,echo=F}
+library(ggplot2)
+greg_nicotero <- twd_episodes[twd_episodes$directed_by == "Greg Nicotero",]
+ggplot(greg_nicotero, aes(x = factor(air_year), y = us_viewers)) +
+  geom_boxplot(fill = "darkgreen", color="red") +
+  labs(title = "Distribution of Viewcount for Greg Nicotero's Episodes by Year",
+       x = "Year",
+       y = "Viewcount") +
+  theme_minimal()
+```
 ## Who are the Writers and what is their impact? 
-- count
-- mean viewership
+``` {r}
+library(tidyverse)
+twd_episodes %>% group_by(written_by) %>% summarise(episode_count=n(),average_viewcount=mean(us_viewers)) %>% arrange(desc(episode_count))
+```
 
-### Seasonal change
+For more in-depth breakdowns of what each director does, scroll through here:
+<iframe height="400" width="100%" frameborder="no" src="https://starrynad.shinyapps.io/TwdWriter/">
+</iframe>
 
+Looking at Angela and Scott specifically:
+```{r, eval=T,echo=F}
+library(ggplot2)
+angela_kang <- twd_episodes[twd_episodes$written_by == "Angela Kang",]
+ggplot(angela_kang, aes(x = factor(air_year), y = us_viewers)) +
+  geom_boxplot(fill = "purple", color="black") +
+  labs(title = "Distribution of Viewcount for Angela Kang's Episodes by Year",
+       x = "Year",
+       y = "Viewcount") +
+  theme_minimal()
+```
+```{r, echo=F}
+library(ggplot2)
+scott <- twd_episodes[twd_episodes$written_by == "Scott M. Gimple",]
+ggplot(scott, aes(x = factor(air_year), y = us_viewers)) +
+  geom_boxplot(fill = "blue", color="black") +
+  labs(title = "Distribution of Viewcount for Scott Gimple's Episodes by Year",
+       x = "Year",
+       y = "Viewcount") +
+  theme_minimal()
+```
 ## Average IMDB score per Season
+```{r}
+summary_stats <- twd_imdb %>%
+  group_by(season) %>%
+  summarise(
+    mean_imdb = mean(imdb_rating),
+    min_imdb = min(imdb_rating),
+    max_imdb = max(imdb_rating)
+  )
+summary_stats
+```
 
-## Average IMDB score per show Writer 
+```{r}
+twd_imdb <- read.csv("the_walking_dead_imdb.csv")
+ggplot(data=twd_imdb, #data layer
+       mapping = aes(x=season, y=imdb_rating)) +
+  geom_point(color="brown") + #geometric layer
+  labs(title= "IMDB score across seasons",
+       x= "Season", y= "IMDB Rating") +
+scale_x_continuous(breaks = seq(min(twd_imdb$season), max(twd_imdb$season), by = 1)) +
+  scale_y_continuous(breaks = seq(min(twd_imdb$imdb_rating), max(twd_imdb$imdb_rating), by = 1))
+```
 
-## Average IMDB score per show Director 
+## Frequency of Director working in Season 
+```{r, echo=F}
+director_freq <- twd_episodes %>% group_by(directed_by) %>% summarise(count=n()) %>% arrange(desc(count)) %>% top_n(5)
+top_dir <- twd_episodes %>% filter(directed_by %in% director_freq$directed_by)
+# plot 
+ggplot(top_dir, aes(x = season, fill = directed_by)) +
+  geom_bar(position = "dodge") +
+  labs(title = "Top 5 Directors by Frequency across Season",
+       x = "Season",
+       y = "Frequency",
+       fill = "Director") +
+  theme_minimal() +   scale_x_continuous(breaks = unique(top_dir$season))
+```
 
 ## Other factors that affect popularity 
 
-### Shortest and Longest Season 
+### Shortest and Longest Season
+```{r, echo=F}
+season_counts <- table(twd_episodes$season)
+season_counts_df <- as.data.frame(season_counts)
+names(season_counts_df) <- c("Season", "Frequency")
+ggplot(data = season_counts_df, aes(x = Season, y = Frequency)) +
+  geom_bar(stat = "identity", fill = "skyblue", color = "black") +
+  labs(title = "Frequency of Episodes in Each Season",
+       x = "Season", y = "Frequency") +
+  theme_minimal()
+
+```
 
 # Conclusion 
 - most popular season 
