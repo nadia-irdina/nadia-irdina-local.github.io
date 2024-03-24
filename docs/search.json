@@ -95,21 +95,21 @@
     "href": "insights.html#who-are-the-directors-and-what-is-their-impact-to-the-show",
     "title": "Data Insights",
     "section": "Who are the Directors and what is their impact to the show?",
-    "text": "Who are the Directors and what is their impact to the show?\n\ntwd_episodes %&gt;% group_by(directed_by) %&gt;% summarise(episode_count=n(),average_viewcount=mean(us_viewers)) %&gt;% arrange(desc(episode_count))\n\n# A tibble: 55 × 3\n   directed_by           episode_count average_viewcount\n   &lt;chr&gt;                         &lt;int&gt;             &lt;dbl&gt;\n 1 Greg Nicotero                    37          9494324.\n 2 Michael E. Satrazemis            17          9205294.\n 3 David Boyd                       13          8150769.\n 4 Ernest Dickerson                 10         10462000 \n 5 Billy Gierhart                    6          9845000 \n 6 Guy Ferland                       6          8785000 \n 7 Laura Belsey                      6          2855000 \n 8 Jeffrey F. January                5          9174000 \n 9 Michael Cudlitz                   4          3270000 \n10 Sharat Raju                       4          2232500 \n# ℹ 45 more rows\n\n\nFor More in-depth breakdowns of what each director does, scroll through here:  \n\nSeasonal change"
+    "text": "Who are the Directors and what is their impact to the show?\n\ntwd_episodes %&gt;% group_by(directed_by) %&gt;% summarise(episode_count=n(),average_viewcount=mean(us_viewers)) %&gt;% arrange(desc(episode_count))\n\n# A tibble: 55 × 3\n   directed_by           episode_count average_viewcount\n   &lt;chr&gt;                         &lt;int&gt;             &lt;dbl&gt;\n 1 Greg Nicotero                    37          9494324.\n 2 Michael E. Satrazemis            17          9205294.\n 3 David Boyd                       13          8150769.\n 4 Ernest Dickerson                 10         10462000 \n 5 Billy Gierhart                    6          9845000 \n 6 Guy Ferland                       6          8785000 \n 7 Laura Belsey                      6          2855000 \n 8 Jeffrey F. January                5          9174000 \n 9 Michael Cudlitz                   4          3270000 \n10 Sharat Raju                       4          2232500 \n# ℹ 45 more rows\n\n\nFor more in-depth breakdowns of what each director does, scroll through here:"
   },
   {
     "objectID": "insights.html#who-are-the-writers-and-what-is-their-impact",
     "href": "insights.html#who-are-the-writers-and-what-is-their-impact",
     "title": "Data Insights",
     "section": "Who are the Writers and what is their impact?",
-    "text": "Who are the Writers and what is their impact?\n\ncount\nmean viewership\n\n\nSeasonal change"
+    "text": "Who are the Writers and what is their impact?\n\nlibrary(tidyverse)\ntwd_episodes %&gt;% group_by(written_by) %&gt;% summarise(episode_count=n(),average_viewcount=mean(us_viewers)) %&gt;% arrange(desc(episode_count))\n\n# A tibble: 69 × 3\n   written_by                        episode_count average_viewcount\n   &lt;chr&gt;                                     &lt;int&gt;             &lt;dbl&gt;\n 1 Angela Kang                                  15         10610000 \n 2 Scott M. Gimple                              13         12201538.\n 3 Corey Reed                                    8          8022500 \n 4 Channing Powell                               7          9961429.\n 5 Matthew Negrete                               7         11538571.\n 6 Matthew Negrete & Channing Powell             7         10992857.\n 7 David Leslie Johnson-McGoldrick               6          4340000 \n 8 Seth Hoffman                                  6         12926667.\n 9 Robert Kirkman                                5         11810000 \n10 Vivian Tse                                    5          2652000 \n# ℹ 59 more rows\n\n\nFor more in-depth breakdowns of what each director does, scroll through here:  \nLooking at Angela and Scott specifically:"
   },
   {
     "objectID": "insights.html#average-imdb-score-per-season",
     "href": "insights.html#average-imdb-score-per-season",
     "title": "Data Insights",
     "section": "Average IMDB score per Season",
-    "text": "Average IMDB score per Season"
+    "text": "Average IMDB score per Season\n\ntwd_imdb &lt;- read.csv(\"the_walking_dead_imdb.csv\")\nsummary_stats &lt;- twd_imdb %&gt;%\n  group_by(season) %&gt;%\n  summarise(\n    mean_imdb = mean(imdb_rating),\n    min_imdb = min(imdb_rating),\n    max_imdb = max(imdb_rating)\n  )\nsummary_stats\n\n# A tibble: 11 × 4\n   season mean_imdb min_imdb max_imdb\n    &lt;int&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n 1      1      8.53      8.1      9.2\n 2      2      8.35      7.5      9.2\n 3      3      8.37      7.7      9.3\n 4      4      8.26      7.3      9.6\n 5      5      8.36      7.4      9.6\n 6      6      8.28      6.9      9.6\n 7      7      7.47      5.7      9.2\n 8      8      7.05      6.2      8  \n 9      9      7.99      7.2      9.3\n10     10      7.39      4.1      9.2\n11     11      7.77      6.6      8.7\n\n\n\ntwd_imdb &lt;- read.csv(\"the_walking_dead_imdb.csv\")\nggplot(data=twd_imdb, #data layer\n       mapping = aes(x=season, y=imdb_rating)) +\n  geom_point(color=\"brown\") + #geometric layer\n  labs(title= \"IMDB score across seasons\",\n       x= \"Season\", y= \"IMDB Rating\") +\nscale_x_continuous(breaks = seq(min(twd_imdb$season), max(twd_imdb$season), by = 1)) +\n  scale_y_continuous(breaks = seq(min(twd_imdb$imdb_rating), max(twd_imdb$imdb_rating), by = 1))"
   },
   {
     "objectID": "insights.html#average-imdb-score-per-show-writer",
@@ -152,5 +152,12 @@
     "title": "Data Insights",
     "section": "",
     "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(ggplot2)\ntwd_episodes &lt;- read.csv(\"the_walking_dead_episodes.csv\")\ntwd_episodes$season &lt;- as.double(twd_episodes$season)\nglimpse(twd_episodes)\n\nRows: 177\nColumns: 8\n$ season                &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …\n$ episode_num_in_season &lt;int&gt; 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,…\n$ episode_num_overall   &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1…\n$ title                 &lt;chr&gt; \"Days Gone Bye\", \"Guts\", \"Tell It to the Frogs\",…\n$ directed_by           &lt;chr&gt; \"Frank Darabont\", \"Michelle MacLaren\", \"Gwyneth …\n$ written_by            &lt;chr&gt; \"Teleplay by: Frank Darabont\", \"Frank Darabont\",…\n$ original_air_date     &lt;chr&gt; \"2010-10-31\", \"2010-11-07\", \"2010-11-14\", \"2010-…\n$ us_viewers            &lt;dbl&gt; 5350000, 4710000, 5070000, 4750000, 5560000, 597…"
+  },
+  {
+    "objectID": "insights.html#frequency-of-director-working-in-season",
+    "href": "insights.html#frequency-of-director-working-in-season",
+    "title": "Data Insights",
+    "section": "Frequency of Director working in Season",
+    "text": "Frequency of Director working in Season\n\n\nSelecting by count"
   }
 ]

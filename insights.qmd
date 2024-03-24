@@ -88,6 +88,7 @@ ggplot(scott, aes(x = factor(air_year), y = us_viewers)) +
 ```
 ## Average IMDB score per Season
 ```{r}
+twd_imdb <- read.csv("the_walking_dead_imdb.csv")
 summary_stats <- twd_imdb %>%
   group_by(season) %>%
   summarise(

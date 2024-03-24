@@ -152,17 +152,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#comparing-viewership-over-time-grouped-by-season" id="toc-comparing-viewership-over-time-grouped-by-season" class="nav-link" data-scroll-target="#comparing-viewership-over-time-grouped-by-season">Comparing Viewership Over Time, grouped by Season</a></li>
   </ul></li>
-  <li><a href="#who-are-the-directors-and-what-is-their-impact-to-the-show" id="toc-who-are-the-directors-and-what-is-their-impact-to-the-show" class="nav-link" data-scroll-target="#who-are-the-directors-and-what-is-their-impact-to-the-show">Who are the Directors and what is their impact to the show?</a>
-  <ul class="collapse">
-  <li><a href="#seasonal-change" id="toc-seasonal-change" class="nav-link" data-scroll-target="#seasonal-change">Seasonal change</a></li>
-  </ul></li>
-  <li><a href="#who-are-the-writers-and-what-is-their-impact" id="toc-who-are-the-writers-and-what-is-their-impact" class="nav-link" data-scroll-target="#who-are-the-writers-and-what-is-their-impact">Who are the Writers and what is their impact?</a>
-  <ul class="collapse">
-  <li><a href="#seasonal-change-1" id="toc-seasonal-change-1" class="nav-link" data-scroll-target="#seasonal-change-1">Seasonal change</a></li>
-  </ul></li>
+  <li><a href="#who-are-the-directors-and-what-is-their-impact-to-the-show" id="toc-who-are-the-directors-and-what-is-their-impact-to-the-show" class="nav-link" data-scroll-target="#who-are-the-directors-and-what-is-their-impact-to-the-show">Who are the Directors and what is their impact to the show?</a></li>
+  <li><a href="#who-are-the-writers-and-what-is-their-impact" id="toc-who-are-the-writers-and-what-is-their-impact" class="nav-link" data-scroll-target="#who-are-the-writers-and-what-is-their-impact">Who are the Writers and what is their impact?</a></li>
   <li><a href="#average-imdb-score-per-season" id="toc-average-imdb-score-per-season" class="nav-link" data-scroll-target="#average-imdb-score-per-season">Average IMDB score per Season</a></li>
-  <li><a href="#average-imdb-score-per-show-writer" id="toc-average-imdb-score-per-show-writer" class="nav-link" data-scroll-target="#average-imdb-score-per-show-writer">Average IMDB score per show Writer</a></li>
-  <li><a href="#average-imdb-score-per-show-director" id="toc-average-imdb-score-per-show-director" class="nav-link" data-scroll-target="#average-imdb-score-per-show-director">Average IMDB score per show Director</a></li>
+  <li><a href="#frequency-of-director-working-in-season" id="toc-frequency-of-director-working-in-season" class="nav-link" data-scroll-target="#frequency-of-director-working-in-season">Frequency of Director working in Season</a></li>
   <li><a href="#other-factors-that-affect-popularity" id="toc-other-factors-that-affect-popularity" class="nav-link" data-scroll-target="#other-factors-that-affect-popularity">Other factors that affect popularity</a>
   <ul class="collapse">
   <li><a href="#shortest-and-longest-season" id="toc-shortest-and-longest-season" class="nav-link" data-scroll-target="#shortest-and-longest-season">Shortest and Longest Season</a></li>
@@ -262,34 +255,111 @@ $ us_viewers            &lt;dbl&gt; 5350000, 4710000, 5070000, 4750000, 5560000,
 # ℹ 45 more rows</code></pre>
 </div>
 </div>
-<p>For More in-depth breakdowns of what each director does, scroll through here: <iframe height="400" width="100%" frameborder="no" src="https://starrynad.shinyapps.io/TwdDirector/"> </iframe></p>
-<section id="seasonal-change" class="level3">
-<h3 class="anchored" data-anchor-id="seasonal-change">Seasonal change</h3>
-</section>
+<p>For more in-depth breakdowns of what each director does, scroll through here: <iframe height="400" width="100%" frameborder="no" src="https://starrynad.shinyapps.io/TwdDirector/"> </iframe></p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="insights_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 </section>
 <section id="who-are-the-writers-and-what-is-their-impact" class="level2">
 <h2 class="anchored" data-anchor-id="who-are-the-writers-and-what-is-their-impact">Who are the Writers and what is their impact?</h2>
-<ul>
-<li>count</li>
-<li>mean viewership</li>
-</ul>
-<section id="seasonal-change-1" class="level3">
-<h3 class="anchored" data-anchor-id="seasonal-change-1">Seasonal change</h3>
-</section>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>twd_episodes <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(written_by) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">episode_count=</span><span class="fu">n</span>(),<span class="at">average_viewcount=</span><span class="fu">mean</span>(us_viewers)) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(episode_count))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 69 × 3
+   written_by                        episode_count average_viewcount
+   &lt;chr&gt;                                     &lt;int&gt;             &lt;dbl&gt;
+ 1 Angela Kang                                  15         10610000 
+ 2 Scott M. Gimple                              13         12201538.
+ 3 Corey Reed                                    8          8022500 
+ 4 Channing Powell                               7          9961429.
+ 5 Matthew Negrete                               7         11538571.
+ 6 Matthew Negrete &amp; Channing Powell             7         10992857.
+ 7 David Leslie Johnson-McGoldrick               6          4340000 
+ 8 Seth Hoffman                                  6         12926667.
+ 9 Robert Kirkman                                5         11810000 
+10 Vivian Tse                                    5          2652000 
+# ℹ 59 more rows</code></pre>
+</div>
+</div>
+<p>For more in-depth breakdowns of what each director does, scroll through here: <iframe height="400" width="100%" frameborder="no" src="https://starrynad.shinyapps.io/TwdWriter/"> </iframe></p>
+<p>Looking at Angela and Scott specifically:</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="insights_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="insights_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 </section>
 <section id="average-imdb-score-per-season" class="level2">
 <h2 class="anchored" data-anchor-id="average-imdb-score-per-season">Average IMDB score per Season</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>twd_imdb <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"the_walking_dead_imdb.csv"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>summary_stats <span class="ot">&lt;-</span> twd_imdb <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(season) <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_imdb =</span> <span class="fu">mean</span>(imdb_rating),</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">min_imdb =</span> <span class="fu">min</span>(imdb_rating),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">max_imdb =</span> <span class="fu">max</span>(imdb_rating)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>summary_stats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11 × 4
+   season mean_imdb min_imdb max_imdb
+    &lt;int&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+ 1      1      8.53      8.1      9.2
+ 2      2      8.35      7.5      9.2
+ 3      3      8.37      7.7      9.3
+ 4      4      8.26      7.3      9.6
+ 5      5      8.36      7.4      9.6
+ 6      6      8.28      6.9      9.6
+ 7      7      7.47      5.7      9.2
+ 8      8      7.05      6.2      8  
+ 9      9      7.99      7.2      9.3
+10     10      7.39      4.1      9.2
+11     11      7.77      6.6      8.7</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>twd_imdb <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"the_walking_dead_imdb.csv"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>twd_imdb, <span class="co">#data layer</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x=</span>season, <span class="at">y=</span>imdb_rating)) <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">"brown"</span>) <span class="sc">+</span> <span class="co">#geometric layer</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span> <span class="st">"IMDB score across seasons"</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span> <span class="st">"Season"</span>, <span class="at">y=</span> <span class="st">"IMDB Rating"</span>) <span class="sc">+</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fu">min</span>(twd_imdb<span class="sc">$</span>season), <span class="fu">max</span>(twd_imdb<span class="sc">$</span>season), <span class="at">by =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fu">min</span>(twd_imdb<span class="sc">$</span>imdb_rating), <span class="fu">max</span>(twd_imdb<span class="sc">$</span>imdb_rating), <span class="at">by =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="insights_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 </section>
-<section id="average-imdb-score-per-show-writer" class="level2">
-<h2 class="anchored" data-anchor-id="average-imdb-score-per-show-writer">Average IMDB score per show Writer</h2>
-</section>
-<section id="average-imdb-score-per-show-director" class="level2">
-<h2 class="anchored" data-anchor-id="average-imdb-score-per-show-director">Average IMDB score per show Director</h2>
+<section id="frequency-of-director-working-in-season" class="level2">
+<h2 class="anchored" data-anchor-id="frequency-of-director-working-in-season">Frequency of Director working in Season</h2>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Selecting by count</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="insights_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 </section>
 <section id="other-factors-that-affect-popularity" class="level2">
 <h2 class="anchored" data-anchor-id="other-factors-that-affect-popularity">Other factors that affect popularity</h2>
 <section id="shortest-and-longest-season" class="level3">
 <h3 class="anchored" data-anchor-id="shortest-and-longest-season">Shortest and Longest Season</h3>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="insights_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 </section>
 </section>
 <section id="conclusion" class="level1">
