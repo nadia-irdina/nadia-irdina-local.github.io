@@ -16,6 +16,8 @@ website:
         text: Data Story
       - href: insights.qmd
         text: Insights
+      - href: Conclusion.qmd
+        text: Conclusion
 
 format:
   html:

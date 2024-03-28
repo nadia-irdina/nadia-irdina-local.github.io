@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>nadia-irdina.github.io - About Me</title>
+<title>nadia-irdina.github.io - Data Conclusion</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -86,7 +86,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="./about.html" rel="" target="">
  <span class="menu-text">About Me</span></a>
   </li>  
   <li class="nav-item">
@@ -98,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Insights</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Conclusion.html" rel="" target="">
+    <a class="nav-link active" href="./Conclusion.html" rel="" target="" aria-current="page">
  <span class="menu-text">Conclusion</span></a>
   </li>  
 </ul>
@@ -117,10 +117,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#self-introduction" id="toc-self-introduction" class="nav-link active" data-scroll-target="#self-introduction">Self-Introduction</a>
+  <li><a href="#conclusion-from-the-data-visualisations---factors-affecting-popularity-of-the-walking-dead" id="toc-conclusion-from-the-data-visualisations---factors-affecting-popularity-of-the-walking-dead" class="nav-link active" data-scroll-target="#conclusion-from-the-data-visualisations---factors-affecting-popularity-of-the-walking-dead">Conclusion from the Data Visualisations - Factors affecting popularity of The Walking Dead</a>
   <ul class="collapse">
-  <li><a href="#interests" id="toc-interests" class="nav-link" data-scroll-target="#interests">Interests</a></li>
+  <li><a href="#viewcounts" id="toc-viewcounts" class="nav-link" data-scroll-target="#viewcounts">Viewcounts</a></li>
+  <li><a href="#writers-and-directors" id="toc-writers-and-directors" class="nav-link" data-scroll-target="#writers-and-directors">Writers and Directors</a></li>
+  <li><a href="#imdb-vs-viewership" id="toc-imdb-vs-viewership" class="nav-link" data-scroll-target="#imdb-vs-viewership">IMDB vs Viewership</a></li>
+  <li><a href="#other-factors" id="toc-other-factors" class="nav-link" data-scroll-target="#other-factors">Other factors</a></li>
   </ul></li>
+  <li><a href="#thank-you" id="toc-thank-you" class="nav-link" data-scroll-target="#thank-you">Thank you</a></li>
   </ul>
 </nav>
     </div>
@@ -129,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About Me</h1>
+<h1 class="title">Data Conclusion</h1>
 </div>
 
 
@@ -144,26 +148,66 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="self-introduction" class="level1">
-<h1>Self-Introduction</h1>
-<p>Welcome to my webpage! My name is <b><span style="color: #800080;">Nadia Irdina Yuzaimi.</span></b> I’m 21 years old and I’m a proud Year 2 undergrad student majoring in <span style="color:#00008B;">Communications and New Media.</span></p>
-<section id="interests" class="level2">
-<h2 class="anchored" data-anchor-id="interests">Interests</h2>
-<p>I like learning about pop-culture, digital media and analysing fictional content. I spend of my free time listening to podcasts, namely from the “true crime” and “lifestyle” genre.</p>
-<p>This is why I am interested in delivering data insights pertaining to fictional content.</p>
+<section id="conclusion-from-the-data-visualisations---factors-affecting-popularity-of-the-walking-dead" class="level1">
+<h1>Conclusion from the Data Visualisations - Factors affecting popularity of The Walking Dead</h1>
+<section id="viewcounts" class="level2">
+<h2 class="anchored" data-anchor-id="viewcounts">Viewcounts</h2>
+<p>Overall, the most popular season is <strong>Season 5, released in 2014</strong>, with 17,290,000 viewers only in the US. Conversely, the least popular season is <strong>Season 11</strong> with only 4 million viewers.</p>
 <div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="IMG_4243.jpg" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<figcaption class="figure-caption">This is my most recent media venture</figcaption>
-</figure>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11 × 6
+   season      mean   median      min      max total_episodes
+    &lt;int&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;          &lt;int&gt;
+ 1      1  5235000   5210000  4710000  5970000              6
+ 2      2  6911538.  6770000  6080000  8990000             13
+ 3      3 10751250  10855000  9210000 12420000             16
+ 4      4 13333125  13020000 11290000 16110000             16
+ 5      5 14382500  14250000 12270000 17290000             16
+ 6      6 13151250  13005000 12180000 14630000             16
+ 7      7 11348750  10840000 10160000 17030000             16
+ 8      8  7817500   7870000  6300000 11440000             16
+ 9      9  4951875   4985000  4150000  6080000             16
+10     10  3036818.  3210000  1940000  4000000             22
+11     11  1690417.  1670000  1190000  2270000             24</code></pre>
 </div>
 </div>
-</div>
-
-
+<p>In Season 5, popular directors Greg Nicotero and Ernest Dickerson had a hand in making it, together with popular writers Angela Kang and Scott Gimple. With the biggest names in the show exercising their talent and influence in Season 5, the show’s narrative elements were deemed the best. Some of the narrative choices well-loved by audiences include: having the protagonist redeem himself, introducing 2 new environments and antagonists, and it marked the start of a gory and uncertain future for the characters.</p>
+<p>Furthermore, the data only shows the viewcount in the US. The popularity of seasons might differ when combined with global statistics, which are currently unavailable.</p>
 </section>
+<section id="writers-and-directors" class="level2">
+<h2 class="anchored" data-anchor-id="writers-and-directors">Writers and Directors</h2>
+<p>As mentioned, the writers and directors of the show are responsible for the success of the show. Determining which director or writer that is responsible for its drastic decrease in viewcount is challenging. Determining the popularity of writers and directors is dependent on the definition of “popularity”.</p>
+<p>If popularity is determined by the average viewcount of all the episodes written by ONE writer, <strong>Seth Hoffman</strong> holds the title. (Refer to Section 3 of the <a href="https://nadia-irdina.github.io/nadia-irdina-local.github.io/insights.html">“Insights”</a> page.)</p>
+<p>If popularity is defined by the number of episodes they worked on, it will be writer <strong>Angela Kang</strong> with 15 episodes, and director <strong>Greg Nicotero</strong> with 37 episodes.</p>
+<p>Specifically looking at directors, while Greg Nicotero has the most number of episodes in the show, by viewcount and ratings, director <strong>Ernest Dickenson</strong> holds the title. This is unexpected, given that Greg Nicotero is more front-facing during show interviews and conventions. Audiences are more familiar with Nicotero compared to Dickenson.</p>
+</section>
+<section id="imdb-vs-viewership" class="level2">
+<h2 class="anchored" data-anchor-id="imdb-vs-viewership">IMDB vs Viewership</h2>
+<p>There is a difference in IMDB and Viewership results. Season 1 has the highest IMDB rating but Season 5 has the highest average viewcount. This means that viewership is not a main determinor of popularity and quality of the show. One hypothesis could be that people who watched the episode did not like it in the end.</p>
+<p>However, despite that, the average IMDB rating remains high at about 8/10 from Seasons 1-6. This can be named the “Golden Era” of the show before both ratings and viewcounts dropped. Therefore, we can say that viewcount and IMDB are not immediate factors that affect popularity, instead, they are used TOGETHER to quanitfy its popularity.</p>
+</section>
+<section id="other-factors" class="level2">
+<h2 class="anchored" data-anchor-id="other-factors">Other factors</h2>
+<p>Some discussions online hypothesised that the ength of Show was the potential downfall. It is possible, given that there is some relationship between increased number of episodes and the drop in rating.</p>
+</section>
+</section>
+<section id="thank-you" class="level1">
+<h1>Thank you</h1>
+<p>Overall, there are multiple factors affecting the success and failure of the show. It is most likely that changes in narrative elements determined its show quality. Other than that, the show remains to have a hold in everyone’s heart, and some are looking forward to future expansions in this fictional universe.</p>
+
+
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->

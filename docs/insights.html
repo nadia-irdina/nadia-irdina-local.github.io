@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -131,6 +97,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link active" href="./insights.html" rel="" target="" aria-current="page">
  <span class="menu-text">Insights</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Conclusion.html" rel="" target="">
+ <span class="menu-text">Conclusion</span></a>
+  </li>  
 </ul>
             <div class="quarto-navbar-tools ms-auto">
 </div>
@@ -155,12 +125,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#who-are-the-directors-and-what-is-their-impact-to-the-show" id="toc-who-are-the-directors-and-what-is-their-impact-to-the-show" class="nav-link" data-scroll-target="#who-are-the-directors-and-what-is-their-impact-to-the-show">Who are the Directors and what is their impact to the show?</a></li>
   <li><a href="#who-are-the-writers-and-what-is-their-impact" id="toc-who-are-the-writers-and-what-is-their-impact" class="nav-link" data-scroll-target="#who-are-the-writers-and-what-is-their-impact">Who are the Writers and what is their impact?</a></li>
   <li><a href="#average-imdb-score-per-season" id="toc-average-imdb-score-per-season" class="nav-link" data-scroll-target="#average-imdb-score-per-season">Average IMDB score per Season</a></li>
-  <li><a href="#frequency-of-director-working-in-season" id="toc-frequency-of-director-working-in-season" class="nav-link" data-scroll-target="#frequency-of-director-working-in-season">Frequency of Director working in Season</a></li>
-  <li><a href="#other-factors-that-affect-popularity" id="toc-other-factors-that-affect-popularity" class="nav-link" data-scroll-target="#other-factors-that-affect-popularity">Other factors that affect popularity</a>
+  <li><a href="#other-factors-that-affect-show-popularity" id="toc-other-factors-that-affect-show-popularity" class="nav-link" data-scroll-target="#other-factors-that-affect-show-popularity">Other factors that affect show popularity</a>
   <ul class="collapse">
+  <li><a href="#frequency-of-director-working-in-season" id="toc-frequency-of-director-working-in-season" class="nav-link" data-scroll-target="#frequency-of-director-working-in-season">Frequency of Director working in Season</a></li>
   <li><a href="#shortest-and-longest-season" id="toc-shortest-and-longest-season" class="nav-link" data-scroll-target="#shortest-and-longest-season">Shortest and Longest Season</a></li>
   </ul></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -186,8 +155,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="glimpse-of-episodes" class="level2">
 <h2 class="anchored" data-anchor-id="glimpse-of-episodes">Glimpse of Episodes</h2>
+<p>The variables in the “Episodes” Dataset include:</p>
+<p>“season” which indicates the season number that the episode is in, from 1 to 11.</p>
+<p>“episode_num_in_season” indicates the chronological episode number relative to the season they are in.</p>
+<p>“episode_num_overall” indicates the chronological episode number relative to the entire show, from 1 to 177.</p>
+<p>“title” indicates the title of the episode.</p>
+<p>“directed_by” indicates the director of the episode.</p>
+<p>“written_by” indicates the writer of the episode. They provide the foundation for the director to work on the episode.</p>
+<p>“original_air_date” indicates the date in which the episode is released, in YEAR-MONTH-DAY format.</p>
+<p>“us_viewers” indicate the number of viewers from the US that watched the episode.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
@@ -200,10 +177,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>twd_episodes <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"the_walking_dead_episodes.csv"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>twd_episodes<span class="sc">$</span>season <span class="ot">&lt;-</span> <span class="fu">as.double</span>(twd_episodes<span class="sc">$</span>season)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(twd_episodes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 177
 Columns: 8
@@ -221,13 +194,30 @@ $ us_viewers            &lt;dbl&gt; 5350000, 4710000, 5070000, 4750000, 5560000,
 <section id="comparing-viewership-over-time" class="level2">
 <h2 class="anchored" data-anchor-id="comparing-viewership-over-time">Comparing Viewership Over Time</h2>
 <div class="cell">
-<div class="cell-output-display">
-<p><img src="insights_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+<div class="cell-output cell-output-error">
+<pre><code>Error in comma_format(): could not find function "comma_format"</code></pre>
 </div>
 </div>
+<p>Changing the format of “original_air_date” variable, the episodes are grouped into the years they are released in from season 1 to 11. Since a new season is published every year for 11 years (on average), plotting the viewcount provides insight to where the show succeeded and where it dipped in audience popularity.</p>
+<p>As seen from the graph, the viewcount is highest in 2014 and lowest in 2022. There is a positive linear relationship from 2010 to 2014, before gradually declining to the minimum point in 2022. This indicates that the show is popular in its early run time, and people lose interest after 2014.</p>
 <section id="comparing-viewership-over-time-grouped-by-season" class="level3">
 <h3 class="anchored" data-anchor-id="comparing-viewership-over-time-grouped-by-season">Comparing Viewership Over Time, grouped by Season</h3>
+<p>Colour-coding the seasons in the graph better indicates which seasons won the hearts of audiences. It is evident that seasons 5 and 6 hold popularity among viewers, and more recent releases, such as season 7 onwards, its popularity wavers.</p>
 <div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'scales'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:purrr':
+
+    discard</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:readr':
+
+    col_factor</code></pre>
+</div>
 <div class="cell-output-display">
 <p><img src="insights_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -236,8 +226,11 @@ $ us_viewers            &lt;dbl&gt; 5350000, 4710000, 5070000, 4750000, 5560000,
 </section>
 <section id="who-are-the-directors-and-what-is-their-impact-to-the-show" class="level2">
 <h2 class="anchored" data-anchor-id="who-are-the-directors-and-what-is-their-impact-to-the-show">Who are the Directors and what is their impact to the show?</h2>
+<p>Upon looking at the seasonal popularity and showing a distribution skewed to the right, it begs the question as to what causes the dip in popularity other than the time factor.</p>
+<p>An episode is engaging when its cinematography and action sequences are appealing to the audience. It’s when the characters are portrayed well and fleshed out visually, alongside good visual effects and constuming for the zombies. This is determined by the episode’s director, and the walking dead engaged 55 different directors throughout its runtime.</p>
+<p>Based on the table below, <strong>Greg Nicotero</strong> is a director that has the most amount of impact in determining how the show succeeds. However, his average viewcount is not the maximum value. <strong>Ernest Dickerson holds the title</strong>.</p>
+<p>This means that the success of the show is not necessarily determined by who it is directed by.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>twd_episodes <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(directed_by) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">episode_count=</span><span class="fu">n</span>(),<span class="at">average_viewcount=</span><span class="fu">mean</span>(us_viewers)) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(episode_count))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 55 × 3
    directed_by           episode_count average_viewcount
@@ -256,6 +249,8 @@ $ us_viewers            &lt;dbl&gt; 5350000, 4710000, 5070000, 4750000, 5560000,
 </div>
 </div>
 <p>For more in-depth breakdowns of what each director does, scroll through here: <iframe height="400" width="100%" frameborder="no" src="https://starrynad.shinyapps.io/TwdDirector/"> </iframe></p>
+<p>However, the impact of <strong>Greg Nicotero</strong> is significant, since he is most popular among audiences and had directed the most number of episodes. Looking at only <em>his</em> viewcount for the episodes he directed, we see that an episode in 2016 is the most popular, but this is an anomaly.</p>
+<p>On average, in the earlier seasons, the range in his viewcount is wider but the viewcount in itself is still impressive. This plummets in 2015 onwards, where the viewcount depletes significantly. However, the range is smaller as the seasons go by, suggesting that he is directing episodes that are <strong>consistently</strong> doing poorly.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="insights_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
@@ -264,9 +259,9 @@ $ us_viewers            &lt;dbl&gt; 5350000, 4710000, 5070000, 4750000, 5560000,
 </section>
 <section id="who-are-the-writers-and-what-is-their-impact" class="level2">
 <h2 class="anchored" data-anchor-id="who-are-the-writers-and-what-is-their-impact">Who are the Writers and what is their impact?</h2>
+<p>Then, we look at the writers involved in The Walking Dead. They hold a very important role in creating a show that is successful, as they create the narrative that will eventually be visualised by the director. They build the characters and brainstorm ideas.</p>
+<p>The table below looks at the names of writers in descending order of how many episodes they write for. We see that <strong>Angela Kang</strong> and <strong>Scott M. Gimple</strong> hold the highest number of written episodes.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>twd_episodes <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(written_by) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">episode_count=</span><span class="fu">n</span>(),<span class="at">average_viewcount=</span><span class="fu">mean</span>(us_viewers)) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(episode_count))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 69 × 3
    written_by                        episode_count average_viewcount
@@ -284,8 +279,11 @@ $ us_viewers            &lt;dbl&gt; 5350000, 4710000, 5070000, 4750000, 5560000,
 # ℹ 59 more rows</code></pre>
 </div>
 </div>
-<p>For more in-depth breakdowns of what each director does, scroll through here: <iframe height="400" width="100%" frameborder="no" src="https://starrynad.shinyapps.io/TwdWriter/"> </iframe></p>
-<p>Looking at Angela and Scott specifically:</p>
+<p>Some writers are also seen collaborating with other writers in various other episodes. For more in-depth breakdowns of what each writer does and the collaborations of the writers, scroll through here: <iframe height="400" width="100%" frameborder="no" src="https://starrynad.shinyapps.io/TwdWriter/"> </iframe></p>
+<section id="looking-at-angela-and-scott-specifically" class="level4">
+<h4 class="anchored" data-anchor-id="looking-at-angela-and-scott-specifically">Looking at Angela and Scott specifically:</h4>
+<p><strong>Angela Kang</strong> and <strong>Scott M. Gimple</strong> are well-loved show writers. Audiences are most familiar with their work relative to other writers of the show. As seen below, Angela Kang worked on the show for a longer period of time (8 years) compared to Scott (6 years). The shape of their curves are also similar, with Angela’s viewcount consistently high between 2013-2017. Meanwhile, the distribution of viewcounts for Scott seem to be at an incline over the years, before a drastic drop in 2017.</p>
+<p>For Scott, there is an abnormally range of viewcount in 2013 despite only working independently on 3 episodes that year. This means that his writing may not be consistently of good quality that year.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="insights_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
@@ -297,18 +295,11 @@ $ us_viewers            &lt;dbl&gt; 5350000, 4710000, 5070000, 4750000, 5560000,
 </div>
 </div>
 </section>
+</section>
 <section id="average-imdb-score-per-season" class="level2">
 <h2 class="anchored" data-anchor-id="average-imdb-score-per-season">Average IMDB score per Season</h2>
+<p>Drawing on the saying: “Qualtity &gt; Quantity”, we focus now <strong>IMDB ratings</strong>. IMDB rating is an aggregated score based on votes by individuals. The show they vote on a scale from <strong>1-10</strong> indicate how good, subjectively, they perceive the show. The more people vote on the higher end of the scale, the higher the show’s IMDB rating, thereby we can assume that the show is <strong>“GOOD”</strong>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>twd_imdb <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"the_walking_dead_imdb.csv"</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>summary_stats <span class="ot">&lt;-</span> twd_imdb <span class="sc">%&gt;%</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(season) <span class="sc">%&gt;%</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_imdb =</span> <span class="fu">mean</span>(imdb_rating),</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">min_imdb =</span> <span class="fu">min</span>(imdb_rating),</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">max_imdb =</span> <span class="fu">max</span>(imdb_rating)</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>summary_stats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 11 × 4
    season mean_imdb min_imdb max_imdb
@@ -326,22 +317,19 @@ $ us_viewers            &lt;dbl&gt; 5350000, 4710000, 5070000, 4750000, 5560000,
 11     11      7.77      6.6      8.7</code></pre>
 </div>
 </div>
+<p>On average <strong>Season 1</strong> has the highest IMDB rating of <strong>8.53/10</strong>. Conversely, <strong>Season 8</strong> is the worst performing season with an average IMDB rating of <strong>7.05/10</strong>.</p>
+<p>However, based on the graph below, the spread of IMDB ratings for episodes in <strong>Season 10</strong> is largest, and contains very significant low ratings. Comparing Season 8 and 10, it seems that although season 10 has 3 episodes with signficantly low ratings, it does not affect the average IMDB rating because it has MORE episodes in the season.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>twd_imdb <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"the_walking_dead_imdb.csv"</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>twd_imdb, <span class="co">#data layer</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x=</span>season, <span class="at">y=</span>imdb_rating)) <span class="sc">+</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">"brown"</span>) <span class="sc">+</span> <span class="co">#geometric layer</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span> <span class="st">"IMDB score across seasons"</span>,</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span> <span class="st">"Season"</span>, <span class="at">y=</span> <span class="st">"IMDB Rating"</span>) <span class="sc">+</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fu">min</span>(twd_imdb<span class="sc">$</span>season), <span class="fu">max</span>(twd_imdb<span class="sc">$</span>season), <span class="at">by =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fu">min</span>(twd_imdb<span class="sc">$</span>imdb_rating), <span class="fu">max</span>(twd_imdb<span class="sc">$</span>imdb_rating), <span class="at">by =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="insights_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
-<section id="frequency-of-director-working-in-season" class="level2">
-<h2 class="anchored" data-anchor-id="frequency-of-director-working-in-season">Frequency of Director working in Season</h2>
+<section id="other-factors-that-affect-show-popularity" class="level2">
+<h2 class="anchored" data-anchor-id="other-factors-that-affect-show-popularity">Other factors that affect show popularity</h2>
+<section id="frequency-of-director-working-in-season" class="level3">
+<h3 class="anchored" data-anchor-id="frequency-of-director-working-in-season">Frequency of Director working in Season</h3>
+<p>From the bar graoh below, director <strong>Ernest Dickerson</strong> works the most amount of times only in season 1 to 2. However, throughout the show, director <strong>Greg Nicotero</strong> worked on the most number of episodes in the show from season 2 onwards (with the exception of Season 10). This means that he is the most influential and responsible for the rise and fall of the show’s popularity and rating.</p>
 <div class="cell">
 <div class="cell-output cell-output-stderr">
 <pre><code>Selecting by count</code></pre>
@@ -351,28 +339,17 @@ $ us_viewers            &lt;dbl&gt; 5350000, 4710000, 5070000, 4750000, 5560000,
 </div>
 </div>
 </section>
-<section id="other-factors-that-affect-popularity" class="level2">
-<h2 class="anchored" data-anchor-id="other-factors-that-affect-popularity">Other factors that affect popularity</h2>
 <section id="shortest-and-longest-season" class="level3">
 <h3 class="anchored" data-anchor-id="shortest-and-longest-season">Shortest and Longest Season</h3>
+<p>As seen below, <strong>Season 1</strong> has the smallest number of episodes in the show while <strong>Seasons 10-11</strong> have the most number of episodes.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="insights_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section>
-</section>
-<section id="conclusion" class="level1">
-<h1>Conclusion</h1>
-<ul>
-<li>most popular season</li>
-<li>most popular writer</li>
-<li>most popular director</li>
-<li>IMDB vs Viewership</li>
-<li>Length of Show potential downfall</li>
-</ul>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->

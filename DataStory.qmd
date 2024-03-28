@@ -29,6 +29,7 @@ The data I am working with is taken from [Kaggle](https://www.kaggle.com/dataset
 It has 2 csv files: episodes and IMDB
 
 <iframe height="400" width="100%" frameborder="no" src="https://starrynad.shinyapps.io/Twd_datasetsApp/">
+
 </iframe>
 
 ### Names of Variables within Episodes Dataset
@@ -47,10 +48,6 @@ names(twd_imdb)
 
 ## Answering the Question:
 
-How to answer?: 
-- comparing variable: *"us_viewers"* against *"original_air_date."* 
-- comparing variable: *"directed_by"* against *"us_viewers"* 
-- comparing variable: *"written_by"* against *"us_viewers"* 
-- comparing variable: count of *"season"* against *"us_viewers"*
+How to answer?: - comparing variable: *"us_viewers"* against *"original_air_date."* - comparing variable: *"directed_by"* against *"us_viewers"* - comparing variable: *"written_by"* against *"us_viewers"* - comparing variable: count of *"season"* against *"us_viewers"*
 
-*Click on the \["Insights"\] page to see results.*
+*Click on the ["Insights"](https://nadia-irdina.github.io/nadia-irdina-local.github.io/insights.html) page to see results.*

@@ -7,7 +7,7 @@ twd_episodes <- read.csv("the_walking_dead_episodes.csv")
 ui <- fluidPage(
   
   # App title ----
-  titlePanel("Directors"),
+  titlePanel("Writers"),
   
   # Sidebar layout with a input and output definitions ----
   sidebarLayout(

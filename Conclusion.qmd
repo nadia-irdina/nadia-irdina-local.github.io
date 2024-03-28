@@ -1,0 +1,48 @@
+---
+title: "Data Conclusion"
+format: html
+editor: visual
+---
+
+# Conclusion from the Data Visualisations - Factors affecting popularity of The Walking Dead 
+
+## Viewcounts
+Overall, the most popular season is **Season 5, released in 2014**, with 17,290,000 viewers only in the US. Conversely, the least popular season is **Season 11** with only 4 million viewers. 
+
+```{r, echo=FALSE}
+library(tidyverse)
+twd_episodes <-read.csv("the_walking_dead_episodes.csv")
+twd_episodes %>% group_by(season) %>% summarise(
+  mean = mean(us_viewers),
+  median = median(us_viewers),
+  min = min(us_viewers),
+  max = max(us_viewers),
+  total_episodes = n())
+```
+
+In Season 5, popular directors Greg Nicotero and Ernest Dickerson had a hand in making it, together with popular writers Angela Kang and Scott Gimple. With the biggest names in the show exercising their talent and influence in Season 5, the show's narrative elements were deemed the best. Some of the narrative choices well-loved by audiences include: having the protagonist redeem himself, introducing 2 new environments and antagonists, and it marked the start of a gory and uncertain future for the characters.
+
+Furthermore, the data only shows the viewcount in the US. The popularity of seasons might differ when combined with global statistics, which are currently unavailable. 
+
+## Writers and Directors
+
+As mentioned, the writers and directors of the show are responsible for the success of the show. Determining which director or writer that is responsible for its drastic decrease in viewcount is challenging. Determining the popularity of writers and directors is dependent on the definition of "popularity".
+
+If popularity is determined by the average viewcount of all the episodes written by ONE writer, **Seth Hoffman** holds the title. (Refer to Section 3 of the ["Insights"](https://nadia-irdina.github.io/nadia-irdina-local.github.io/insights.html) page.)
+
+If popularity is defined by the number of episodes they worked on, it will be writer **Angela Kang** with 15 episodes, and director **Greg Nicotero** with 37 episodes. 
+
+Specifically looking at directors, while Greg Nicotero has the most number of episodes in the show, by viewcount and ratings, director **Ernest Dickenson** holds the title. This is unexpected, given that Greg Nicotero is more front-facing during show interviews and conventions. Audiences are more familiar with Nicotero compared to Dickenson. 
+
+## IMDB vs Viewership
+
+There is a difference in IMDB and Viewership results. Season 1 has the highest IMDB rating but Season 5 has the highest average viewcount. This means that viewership is not a main determinor of popularity and quality of the show. One hypothesis could be that people who watched the episode did not like it in the end. 
+
+However, despite that, the average IMDB rating remains high at about 8/10 from Seasons 1-6. This can be named the "Golden Era" of the show before both ratings and viewcounts dropped. Therefore, we can say that viewcount and IMDB are not immediate factors that affect popularity, instead, they are used TOGETHER to quanitfy its popularity. 
+
+## Other factors
+
+Some discussions online hypothesised that the ength of Show was the potential downfall. It is possible, given that there is some relationship between increased number of episodes and the drop in rating. 
+
+# Thank you
+Overall, there are multiple factors affecting the success and failure of the show. It is most likely that changes in narrative elements determined its show quality. Other than that, the show remains to have a hold in everyone's heart, and some are looking forward to future expansions in this fictional universe. 

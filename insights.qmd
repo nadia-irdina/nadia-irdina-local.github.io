@@ -3,8 +3,28 @@ title: " Data Insights"
 format: html
 editor: visual
 ---
+
 ## Glimpse of Episodes
-```{r}
+
+The variables in the "Episodes" Dataset include:
+
+"season" which indicates the season number that the episode is in, from 1 to 11.
+
+"episode_num_in_season" indicates the chronological episode number relative to the season they are in.
+
+"episode_num_overall" indicates the chronological episode number relative to the entire show, from 1 to 177.
+
+"title" indicates the title of the episode.
+
+"directed_by" indicates the director of the episode.
+
+"written_by" indicates the writer of the episode. They provide the foundation for the director to work on the episode.
+
+"original_air_date" indicates the date in which the episode is released, in YEAR-MONTH-DAY format.
+
+"us_viewers" indicate the number of viewers from the US that watched the episode.
+
+```{r, echo=FALSE, error=FALSE}
 library(tidyverse)
 library(ggplot2)
 twd_episodes <- read.csv("the_walking_dead_episodes.csv")
@@ -12,7 +32,7 @@ twd_episodes$season <- as.double(twd_episodes$season)
 glimpse(twd_episodes)
 ```
 
-## Comparing Viewership Over Time 
+## Comparing Viewership Over Time
 
 ```{r, eval=T, echo=F, error=T}
 twd_episodes$original_air_date <- as.Date(twd_episodes$original_air_date, format = "%Y-%m-%d")
@@ -23,49 +43,79 @@ ggplot(data=twd_episodes, #data layer
        mapping = aes(x=air_year, y=us_viewers)) +
   geom_point() + #geometric layer
   labs(title="Viewers in the US over Time",
-       x= "Air Date(year)", y= "Viewcount")
+       x= "Air Date(year)", y= "Viewcount") + scale_y_continuous(labels=comma_format())
 ```
 
+Changing the format of "original_air_date" variable, the episodes are grouped into the years they are released in from season 1 to 11. Since a new season is published every year for 11 years (on average), plotting the viewcount provides insight to where the show succeeded and where it dipped in audience popularity.
+
+As seen from the graph, the viewcount is highest in 2014 and lowest in 2022. There is a positive linear relationship from 2010 to 2014, before gradually declining to the minimum point in 2022. This indicates that the show is popular in its early run time, and people lose interest after 2014.
+
 ### Comparing Viewership Over Time, grouped by Season
-```{r, eval=T,echo=F}
+
+Colour-coding the seasons in the graph better indicates which seasons won the hearts of audiences. It is evident that seasons 5 and 6 hold popularity among viewers, and more recent releases, such as season 7 onwards, its popularity wavers.
+
+```{r, eval=T,echo=F, error=FALSE}
 library(ggplot2)
+library(scales)
 ggplot(data=twd_episodes, #data layer
        mapping = aes(x=air_year, y=us_viewers, color=factor(season))) +
   geom_point() + #geometric layer
   labs(title="Viewers in the US over Time",
-       x= "Air Date(year)", y= "Viewcount")
+       x= "Air Date(year)", y= "Viewcount") + scale_y_continuous(labels=comma_format())
 ```
 
 ## Who are the Directors and what is their impact to the show?
-``` {r}
+
+Upon looking at the seasonal popularity and showing a distribution skewed to the right, it begs the question as to what causes the dip in popularity other than the time factor.
+
+An episode is engaging when its cinematography and action sequences are appealing to the audience. It's when the characters are portrayed well and fleshed out visually, alongside good visual effects and constuming for the zombies. This is determined by the episode's director, and the walking dead engaged 55 different directors throughout its runtime.
+
+Based on the table below, **Greg Nicotero** is a director that has the most amount of impact in determining how the show succeeds. However, his average viewcount is not the maximum value. **Ernest Dickerson holds the title**.
+
+This means that the success of the show is not necessarily determined by who it is directed by.
+
+```{r, echo=F}
 twd_episodes %>% group_by(directed_by) %>% summarise(episode_count=n(),average_viewcount=mean(us_viewers)) %>% arrange(desc(episode_count))
 ```
 
-For more in-depth breakdowns of what each director does, scroll through here:
-<iframe height="400" width="100%" frameborder="no" src="https://starrynad.shinyapps.io/TwdDirector/">
-</iframe> 
+For more in-depth breakdowns of what each director does, scroll through here: <iframe height="400" width="100%" frameborder="no" src="https://starrynad.shinyapps.io/TwdDirector/"> </iframe>
+
+However, the impact of **Greg Nicotero** is significant, since he is most popular among audiences and had directed the most number of episodes. Looking at only *his* viewcount for the episodes he directed, we see that an episode in 2016 is the most popular, but this is an anomaly.
+
+On average, in the earlier seasons, the range in his viewcount is wider but the viewcount in itself is still impressive. This plummets in 2015 onwards, where the viewcount depletes significantly. However, the range is smaller as the seasons go by, suggesting that he is directing episodes that are **consistently** doing poorly.
 
 ```{r, eval=T,echo=F}
 library(ggplot2)
+library(scales)
 greg_nicotero <- twd_episodes[twd_episodes$directed_by == "Greg Nicotero",]
 ggplot(greg_nicotero, aes(x = factor(air_year), y = us_viewers)) +
   geom_boxplot(fill = "darkgreen", color="red") +
   labs(title = "Distribution of Viewcount for Greg Nicotero's Episodes by Year",
        x = "Year",
        y = "Viewcount") +
-  theme_minimal()
+  theme_minimal() +
+  scale_y_continuous(labels = comma_format())
 ```
-## Who are the Writers and what is their impact? 
-``` {r}
+
+## Who are the Writers and what is their impact?
+
+Then, we look at the writers involved in The Walking Dead. They hold a very important role in creating a show that is successful, as they create the narrative that will eventually be visualised by the director. They build the characters and brainstorm ideas.
+
+The table below looks at the names of writers in descending order of how many episodes they write for. We see that **Angela Kang** and **Scott M. Gimple** hold the highest number of written episodes.
+
+```{r, echo=F}
 library(tidyverse)
 twd_episodes %>% group_by(written_by) %>% summarise(episode_count=n(),average_viewcount=mean(us_viewers)) %>% arrange(desc(episode_count))
 ```
 
-For more in-depth breakdowns of what each director does, scroll through here:
-<iframe height="400" width="100%" frameborder="no" src="https://starrynad.shinyapps.io/TwdWriter/">
-</iframe>
+Some writers are also seen collaborating with other writers in various other episodes. For more in-depth breakdowns of what each writer does and the collaborations of the writers, scroll through here: <iframe height="400" width="100%" frameborder="no" src="https://starrynad.shinyapps.io/TwdWriter/"> </iframe>
 
-Looking at Angela and Scott specifically:
+#### Looking at Angela and Scott specifically:
+
+**Angela Kang** and **Scott M. Gimple** are well-loved show writers. Audiences are most familiar with their work relative to other writers of the show. As seen below, Angela Kang worked on the show for a longer period of time (8 years) compared to Scott (6 years). The shape of their curves are also similar, with Angela's viewcount consistently high between 2013-2017. Meanwhile, the distribution of viewcounts for Scott seem to be at an incline over the years, before a drastic drop in 2017. 
+
+For Scott, there is an abnormally range of viewcount in 2013 despite only working independently on 3 episodes that year. This means that his writing may not be consistently of good quality that year.
+
 ```{r, eval=T,echo=F}
 library(ggplot2)
 angela_kang <- twd_episodes[twd_episodes$written_by == "Angela Kang",]
@@ -74,8 +124,9 @@ ggplot(angela_kang, aes(x = factor(air_year), y = us_viewers)) +
   labs(title = "Distribution of Viewcount for Angela Kang's Episodes by Year",
        x = "Year",
        y = "Viewcount") +
-  theme_minimal()
+  theme_minimal() + scale_y_continuous(labels=comma_format())
 ```
+
 ```{r, echo=F}
 library(ggplot2)
 scott <- twd_episodes[twd_episodes$written_by == "Scott M. Gimple",]
@@ -84,10 +135,14 @@ ggplot(scott, aes(x = factor(air_year), y = us_viewers)) +
   labs(title = "Distribution of Viewcount for Scott Gimple's Episodes by Year",
        x = "Year",
        y = "Viewcount") +
-  theme_minimal()
+  theme_minimal() + scale_y_continuous(labels=comma_format())
 ```
+
 ## Average IMDB score per Season
-```{r}
+
+Drawing on the saying: "Qualtity > Quantity", we focus now **IMDB ratings**. IMDB rating is an aggregated score based on votes by individuals. The show they vote on a scale from **1-10** indicate how good, subjectively, they perceive the show. The more people vote on the higher end of the scale, the higher the show's IMDB rating, thereby we can assume that the show is **"GOOD"**. 
+
+```{r, echo=FALSE}
 twd_imdb <- read.csv("the_walking_dead_imdb.csv")
 summary_stats <- twd_imdb %>%
   group_by(season) %>%
@@ -99,7 +154,11 @@ summary_stats <- twd_imdb %>%
 summary_stats
 ```
 
-```{r}
+On average **Season 1** has the highest IMDB rating of **8.53/10**. Conversely, **Season 8** is the worst performing season with an average IMDB rating of **7.05/10**.
+
+However, based on the graph below, the spread of IMDB ratings for episodes in **Season 10** is largest, and contains very significant low ratings. Comparing Season 8 and 10, it seems that although season 10 has 3 episodes with signficantly low ratings, it does not affect the average IMDB rating because it has MORE episodes in the season. 
+
+```{r, echo= FALSE}
 twd_imdb <- read.csv("the_walking_dead_imdb.csv")
 ggplot(data=twd_imdb, #data layer
        mapping = aes(x=season, y=imdb_rating)) +
@@ -110,7 +169,12 @@ scale_x_continuous(breaks = seq(min(twd_imdb$season), max(twd_imdb$season), by =
   scale_y_continuous(breaks = seq(min(twd_imdb$imdb_rating), max(twd_imdb$imdb_rating), by = 1))
 ```
 
-## Frequency of Director working in Season 
+## Other factors that affect show popularity
+
+### Frequency of Director working in Season
+
+From the bar graoh below, director **Ernest Dickerson** works the most amount of times only in season 1 to 2. However, throughout the show, director **Greg Nicotero** worked on the most number of episodes in the show from season 2 onwards (with the exception of Season 10). This means that he is the most influential and responsible for the rise and fall of the show's popularity and rating. 
+
 ```{r, echo=F}
 director_freq <- twd_episodes %>% group_by(directed_by) %>% summarise(count=n()) %>% arrange(desc(count)) %>% top_n(5)
 top_dir <- twd_episodes %>% filter(directed_by %in% director_freq$directed_by)
@@ -124,9 +188,9 @@ ggplot(top_dir, aes(x = season, fill = directed_by)) +
   theme_minimal() +   scale_x_continuous(breaks = unique(top_dir$season))
 ```
 
-## Other factors that affect popularity 
-
 ### Shortest and Longest Season
+As seen below, **Season 1** has the smallest number of episodes in the show while **Seasons 10-11** have the most number of episodes.
+
 ```{r, echo=F}
 season_counts <- table(twd_episodes$season)
 season_counts_df <- as.data.frame(season_counts)
@@ -136,12 +200,5 @@ ggplot(data = season_counts_df, aes(x = Season, y = Frequency)) +
   labs(title = "Frequency of Episodes in Each Season",
        x = "Season", y = "Frequency") +
   theme_minimal()
-
 ```
 
-# Conclusion 
-- most popular season 
-- most popular writer 
-- most popular director 
-- IMDB vs Viewership 
-- Length of Show potential downfall
