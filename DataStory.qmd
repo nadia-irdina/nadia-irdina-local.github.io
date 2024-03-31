@@ -14,9 +14,30 @@ knitr::include_graphics("twd_banner.jpg")
 
 The group expands, travels and goes through many moral and physical challenges. Over time, members of this "family" get killed off, resulting in a <b>high emotional reaction</b> among its audience.
 
-## Audience Reception
+### Data Narrative
 
-This analysis aims to understand the implications of having a loyal fanbase, having a dramatic and gory genre, and having a long run time. It is expected for the show to undergo ups and downs.
+This analysis aims to understand the reasons why this well-loved show, given its loyal fanbase, a dramatic and gory genre, and a long run time, experienced a fall from grace. 
+
+According to the [Lost Angeles
+Times](https://www.latimes.com/entertainment-arts/story/2022-11-20/the-walking-dead-took-the-television-revolution-to-a-whole-new-omigod-what-is-that-level),
+**The Walking Dead** is a piece of fictional media that is ingrained in
+the lives of many families in America and internationally - and it was
+due to its ability to subvert traditional expectations surrounding TV
+shows.
+
+Furthermore, in light of the **2023 Writer's Strike** which aimed at
+fair compensation and has negatively impacted many productions,
+[Forbes](https://www.forbes.com/sites/paultassi/2023/09/02/amc-brokers-a-strike-deal-so-the-walking-dead-can-start-filming-again/?sh=5793fc8c9dc1)
+mentioned that its spin-offs were not affected, but I believe that the
+grievances surrounding writers in America have affected the quality of
+the show over the years.
+
+On a personal level, the show is one I grew up with, and I had witnessed first-hand its monumental
+rise and devastating fall. Towards, the end, I saw a significant drop in
+engagement worldwide, with [Rolling Stone](https://www.rollingstone.com/tv-movies/tv-movie-news/the-walking-dead-what-the-hell-happened-to-this-show-627893/)
+theorising that its drop in popularity was due to narrative choices.
+
+However, I want to look at more numerical perspectives.
 
 ## Main Question:
 
@@ -48,6 +69,11 @@ names(twd_imdb)
 
 ## Answering the Question:
 
-How to answer?: - comparing variable: *"us_viewers"* against *"original_air_date."* - comparing variable: *"directed_by"* against *"us_viewers"* - comparing variable: *"written_by"* against *"us_viewers"* - comparing variable: count of *"season"* against *"us_viewers"*
+How to answer?:
+  - comparing variable: *"us_viewers"* against *"original_air_date."* to see how if a particular year has some significance to the success or failure 
+  - comparing variable: *"directed_by"* against *"us_viewers"* to see which directors are more influential, and by extension, responsible for its success or failure
+  - comparing variable: *"written_by"* against *"us_viewers"* to see which writers are influential and thereby responsible for its success or failure, with focus on narrative elements. 
+  - comparing variable: *"imdb_rating"* against *"seasons"* to support or challenge the insights from viewcount and draw links to the writers and directors of the show 
+  
 
 *Click on the ["Insights"](https://nadia-irdina.github.io/nadia-irdina-local.github.io/insights.html) page to see results.*
