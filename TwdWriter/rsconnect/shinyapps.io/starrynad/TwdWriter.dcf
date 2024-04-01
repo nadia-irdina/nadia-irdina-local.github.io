@@ -5,7 +5,7 @@ account: starrynad
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 11575341
-bundleId: 8411613
+bundleId: 8440410
 url: https://starrynad.shinyapps.io/TwdWriter/
 version: 1
 asMultiple: FALSE

@@ -24,7 +24,7 @@ The variables in the "Episodes" Dataset include:
 
 "us_viewers" indicate the number of viewers from the US that watched the episode.
 
-```{r, echo=FALSE, error=FALSE}
+```{r, echo=FALSE, error=FALSE, message = FALSE}
 library(tidyverse)
 library(ggplot2)
 twd_episodes <- read.csv("the_walking_dead_episodes.csv")
@@ -34,7 +34,8 @@ glimpse(twd_episodes)
 
 ## Comparing Viewership Over Time
 
-```{r, eval=T, echo=F, error=T}
+```{r, eval=T, echo=F, error=F, message=FALSE}
+library(scales)
 twd_episodes$original_air_date <- as.Date(twd_episodes$original_air_date, format = "%Y-%m-%d")
 # extract year
 twd_episodes$air_year<- format(twd_episodes$original_air_date, "%Y")
@@ -54,7 +55,7 @@ As seen from the graph, the viewcount is highest in 2014 and lowest in 2022. The
 
 Colour-coding the seasons in the graph better indicates which seasons won the hearts of audiences. It is evident that seasons 5 and 6 hold popularity among viewers, and more recent releases, such as season 7 onwards, its popularity wavers.
 
-```{r, eval=T,echo=F, error=FALSE}
+```{r, eval=T,echo=F, error=FALSE, message=FALSE}
 library(ggplot2)
 library(scales)
 ggplot(data=twd_episodes, #data layer

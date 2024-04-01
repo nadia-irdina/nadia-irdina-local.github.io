@@ -165,18 +165,6 @@ ul.task-list li input[type="checkbox"] {
 <p>“original_air_date” indicates the date in which the episode is released, in YEAR-MONTH-DAY format.</p>
 <p>“us_viewers” indicate the number of viewers from the US that watched the episode.</p>
 <div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.4.4     ✔ tibble    3.2.1
-✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 177
 Columns: 8
@@ -194,8 +182,8 @@ $ us_viewers            &lt;dbl&gt; 5350000, 4710000, 5070000, 4750000, 5560000,
 <section id="comparing-viewership-over-time" class="level2">
 <h2 class="anchored" data-anchor-id="comparing-viewership-over-time">Comparing Viewership Over Time</h2>
 <div class="cell">
-<div class="cell-output cell-output-error">
-<pre><code>Error in comma_format(): could not find function "comma_format"</code></pre>
+<div class="cell-output-display">
+<p><img src="insights_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Changing the format of “original_air_date” variable, the episodes are grouped into the years they are released in from season 1 to 11. Since a new season is published every year for 11 years (on average), plotting the viewcount provides insight to where the show succeeded and where it dipped in audience popularity.</p>
@@ -204,20 +192,6 @@ $ us_viewers            &lt;dbl&gt; 5350000, 4710000, 5070000, 4750000, 5560000,
 <h3 class="anchored" data-anchor-id="comparing-viewership-over-time-grouped-by-season">Comparing Viewership Over Time, grouped by Season</h3>
 <p>Colour-coding the seasons in the graph better indicates which seasons won the hearts of audiences. It is evident that seasons 5 and 6 hold popularity among viewers, and more recent releases, such as season 7 onwards, its popularity wavers.</p>
 <div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'scales'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:purrr':
-
-    discard</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:readr':
-
-    col_factor</code></pre>
-</div>
 <div class="cell-output-display">
 <p><img src="insights_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
