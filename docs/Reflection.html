@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>nadia-irdina.github.io - Data Conclusion</title>
+<title>nadia-irdina.github.io - Reflection</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -98,11 +98,11 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Insights</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./Conclusion.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="./Conclusion.html" rel="" target="">
  <span class="menu-text">Conclusion</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Reflection.html" rel="" target="">
+    <a class="nav-link active" href="./Reflection.html" rel="" target="" aria-current="page">
  <span class="menu-text">Reflection</span></a>
   </li>  
 </ul>
@@ -121,14 +121,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#conclusion-from-the-data-visualisations---factors-affecting-popularity-of-the-walking-dead" id="toc-conclusion-from-the-data-visualisations---factors-affecting-popularity-of-the-walking-dead" class="nav-link active" data-scroll-target="#conclusion-from-the-data-visualisations---factors-affecting-popularity-of-the-walking-dead">Conclusion from the Data Visualisations - Factors affecting popularity of The Walking Dead</a>
-  <ul class="collapse">
-  <li><a href="#viewcounts" id="toc-viewcounts" class="nav-link" data-scroll-target="#viewcounts">Viewcounts</a></li>
-  <li><a href="#writers-and-directors" id="toc-writers-and-directors" class="nav-link" data-scroll-target="#writers-and-directors">Writers and Directors</a></li>
-  <li><a href="#imdb-vs-viewership" id="toc-imdb-vs-viewership" class="nav-link" data-scroll-target="#imdb-vs-viewership">IMDB vs Viewership</a></li>
-  <li><a href="#other-factors" id="toc-other-factors" class="nav-link" data-scroll-target="#other-factors">Other factors</a></li>
-  </ul></li>
-  <li><a href="#thank-you" id="toc-thank-you" class="nav-link" data-scroll-target="#thank-you">Thank you</a></li>
+  <li><a href="#project-reflection-using-r" id="toc-project-reflection-using-r" class="nav-link active" data-scroll-target="#project-reflection-using-r">Project Reflection using R</a></li>
+  <li><a href="#key-learning-points-in-nm2207" id="toc-key-learning-points-in-nm2207" class="nav-link" data-scroll-target="#key-learning-points-in-nm2207">Key Learning Points in NM2207</a></li>
+  <li><a href="#benefits-for-the-future" id="toc-benefits-for-the-future" class="nav-link" data-scroll-target="#benefits-for-the-future">Benefits for the Future</a></li>
+  <li><a href="#use-cases-and-industry-applications" id="toc-use-cases-and-industry-applications" class="nav-link" data-scroll-target="#use-cases-and-industry-applications">Use-cases and Industry Applications</a></li>
   </ul>
 </nav>
     </div>
@@ -137,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Conclusion</h1>
+<h1 class="title">Reflection</h1>
 </div>
 
 
@@ -152,53 +148,26 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="conclusion-from-the-data-visualisations---factors-affecting-popularity-of-the-walking-dead" class="level1">
-<h1>Conclusion from the Data Visualisations - Factors affecting popularity of The Walking Dead</h1>
-<section id="viewcounts" class="level2">
-<h2 class="anchored" data-anchor-id="viewcounts">Viewcounts</h2>
-<p>Overall, the most popular season is <strong>Season 5, released in 2014</strong>, with 17,290,000 viewers only in the US. Conversely, the least popular season is <strong>Season 11</strong> with only 4 million viewers.</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 11 × 6
-   season      mean   median      min      max total_episodes
-    &lt;int&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;          &lt;int&gt;
- 1      1  5235000   5210000  4710000  5970000              6
- 2      2  6911538.  6770000  6080000  8990000             13
- 3      3 10751250  10855000  9210000 12420000             16
- 4      4 13333125  13020000 11290000 16110000             16
- 5      5 14382500  14250000 12270000 17290000             16
- 6      6 13151250  13005000 12180000 14630000             16
- 7      7 11348750  10840000 10160000 17030000             16
- 8      8  7817500   7870000  6300000 11440000             16
- 9      9  4951875   4985000  4150000  6080000             16
-10     10  3036818.  3210000  1940000  4000000             22
-11     11  1690417.  1670000  1190000  2270000             24</code></pre>
-</div>
-</div>
-<p>In Season 5, popular directors Greg Nicotero and Ernest Dickerson had a hand in making it, together with popular writers Angela Kang and Scott Gimple. With the biggest names in the show exercising their talent and influence in Season 5, the show’s narrative elements were deemed the best. Some of the narrative choices well-loved by audiences include: having the protagonist redeem himself, introducing 2 new environments and antagonists, and it marked the start of a gory and uncertain future for the characters.</p>
-<p>Furthermore, the data only shows the viewcount in the US. The popularity of seasons might differ when combined with global statistics, which are currently unavailable.</p>
+<section id="project-reflection-using-r" class="level2">
+<h2 class="anchored" data-anchor-id="project-reflection-using-r">Project Reflection using R</h2>
+<p>Throughout my journey with R, I found that while lectures provided a solid foundation, true understanding came through immersion and practice. Weekly code-alongs and challenges were invaluable in reinforcing concepts and skills. Coding in R proved to be more straightforward than I had anticipated, thanks to its ability to accept both HTML and C++ coding languages.</p>
+<p>I discovered a plethora of online resources that enriched my project-creation experience, from basic functionalities like back-to-top navigation to more advanced features like customizing dashboard colors. Creating a website using Quarto was intuitive and highly customizable, allowing me to tailor my projects to my preferences.</p>
+<p>However, mastering R was not without its challenges. Like any new skill, it required dedication and perseverance. Debugging often consumed more time than adding new features, but I recognized that this was where the real learning took place.</p>
+<p>Exploring Shiny was particularly intriguing, as it transformed data interaction into an enjoyable experience. Though it posed challenges due to having mutliple chunks of code to account for according to different tasks, overcoming them brought immense satisfaction.</p>
 </section>
-<section id="writers-and-directors" class="level2">
-<h2 class="anchored" data-anchor-id="writers-and-directors">Writers and Directors</h2>
-<p>As mentioned, the writers and directors of the show are responsible for the success of the show. Determining which director or writer that is responsible for its drastic decrease in viewcount is challenging. Determining the popularity of writers and directors is dependent on the definition of “popularity”.</p>
-<p>If popularity is determined by the average viewcount of all the episodes written by ONE writer, <strong>Seth Hoffman</strong> holds the title. (Refer to Section 3 of the <a href="https://nadia-irdina.github.io/nadia-irdina-local.github.io/insights.html">“Insights”</a> page.)</p>
-<p>If popularity is defined by the number of episodes they worked on, it will be writer <strong>Angela Kang</strong> with 15 episodes, and director <strong>Greg Nicotero</strong> with 37 episodes.</p>
-<p>Specifically looking at directors, while Greg Nicotero has the most number of episodes in the show, by viewcount and ratings, director <strong>Ernest Dickenson</strong> holds the title. This is unexpected, given that Greg Nicotero is more front-facing during show interviews and conventions. Audiences are more familiar with Nicotero compared to Dickenson.</p>
+<section id="key-learning-points-in-nm2207" class="level2">
+<h2 class="anchored" data-anchor-id="key-learning-points-in-nm2207">Key Learning Points in NM2207</h2>
+<p>In addition to technical R coding skills, the course instilled in me a systematic approach to problem-solving. Manipulating large datasets taught me valuable organizational skills, especially in filtering data to achieve desired outcomes. Moreover, I gained a newfound appreciation for the ubiquity of data and its role in deciphering everyday phenomena.</p>
+<p>Connecting personal interests to global movements through data analysis was enlightening. Moreover, I learned to cultivate patience and resilience in the face of challenges, recognizing the importance of being detail-oriented to avoid cascading errors.</p>
 </section>
-<section id="imdb-vs-viewership" class="level2">
-<h2 class="anchored" data-anchor-id="imdb-vs-viewership">IMDB vs Viewership</h2>
-<p>There is a difference in IMDB and Viewership results. Season 1 has the highest IMDB rating but Season 5 has the highest average viewcount. This means that viewership is not a main determinor of popularity and quality of the show. One hypothesis could be that people who watched the episode did not like it in the end.</p>
-<p>However, despite that, the average IMDB rating remains high at about 8/10 from Seasons 1-6. This can be named the “Golden Era” of the show before both ratings and viewcounts dropped. Therefore, we can say that viewcount and IMDB are not immediate factors that affect popularity, instead, they are used TOGETHER to quanitfy its popularity.</p>
+<section id="benefits-for-the-future" class="level2">
+<h2 class="anchored" data-anchor-id="benefits-for-the-future">Benefits for the Future</h2>
+<p>R has equipped me with the ability to navigate and interpret data confidently, a valuable skill applicable in various research and work settings. Beyond quantitative analysis, the patience, resilience, and meticulousness developed through R extend to qualitative work and writing, aligning with my interests and line of work.</p>
 </section>
-<section id="other-factors" class="level2">
-<h2 class="anchored" data-anchor-id="other-factors">Other factors</h2>
-<p>Some discussions online hypothesised that the ength of Show was the potential downfall. It is possible, given that there is some relationship between increased number of episodes and the drop in rating.</p>
-</section>
-</section>
-<section id="thank-you" class="level1">
-<h1>Thank you</h1>
-<p>Overall, there are multiple factors affecting the success and failure of the show. It is most likely that changes in narrative elements determined its show quality. Other than that, the show remains to have a hold in everyone’s heart, and some are looking forward to future expansions in this fictional universe.</p>
-<p>Click <a href="https://nadia-irdina.github.io/nadia-irdina-local.github.io/Reflection.html">“Reflection”</a>to read more about my experience making this site!</p>
+<section id="use-cases-and-industry-applications" class="level2">
+<h2 class="anchored" data-anchor-id="use-cases-and-industry-applications">Use-cases and Industry Applications</h2>
+<p>As a Communications and New Media major aspiring to climb the corporate ladder, eventually achieving the position of Director in Sales and Marketing, R is an invaluable tool for developing marketing strategies and identifying business pain points. Its ability to interpret data and create interactive visualizations through Shiny facilitates effective communication of data and collaboration with colleagues.</p>
+<p>Furthermore, R can aid in progress tracking for sales and overall business development, providing insights crucial for decision-making and strategy formulation. By leveraging R’s capabilities, I aim to drive impactful change and innovation in my future endeavors.</p>
 
 
 </section>

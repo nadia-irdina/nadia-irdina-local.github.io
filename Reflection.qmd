@@ -1,0 +1,31 @@
+---
+title: "Reflection"
+format: html
+editor: visual
+---
+
+## Project Reflection using R
+
+Throughout my journey with R, I found that while lectures provided a solid foundation, true understanding came through immersion and practice. Weekly code-alongs and challenges were invaluable in reinforcing concepts and skills. Coding in R proved to be more straightforward than I had anticipated, thanks to its ability to accept both HTML and C++ coding languages.
+
+I discovered a plethora of online resources that enriched my project-creation experience, from basic functionalities like back-to-top navigation to more advanced features like customizing dashboard colors. Creating a website using Quarto was intuitive and highly customizable, allowing me to tailor my projects to my preferences.
+
+However, mastering R was not without its challenges. Like any new skill, it required dedication and perseverance. Debugging often consumed more time than adding new features, but I recognized that this was where the real learning took place.
+
+Exploring Shiny was particularly intriguing, as it transformed data interaction into an enjoyable experience. Though it posed challenges due to having mutliple chunks of code to account for according to different tasks, overcoming them brought immense satisfaction.
+
+## Key Learning Points in NM2207
+
+In addition to technical R coding skills, the course instilled in me a systematic approach to problem-solving. Manipulating large datasets taught me valuable organizational skills, especially in filtering data to achieve desired outcomes. Moreover, I gained a newfound appreciation for the ubiquity of data and its role in deciphering everyday phenomena.
+
+Connecting personal interests to global movements through data analysis was enlightening. Moreover, I learned to cultivate patience and resilience in the face of challenges, recognizing the importance of being detail-oriented to avoid cascading errors.
+
+## Benefits for the Future
+
+R has equipped me with the ability to navigate and interpret data confidently, a valuable skill applicable in various research and work settings. Beyond quantitative analysis, the patience, resilience, and meticulousness developed through R extend to qualitative work and writing, aligning with my interests and line of work.
+
+## Use-cases and Industry Applications
+
+As a Communications and New Media major aspiring to climb the corporate ladder, eventually achieving the position of Director in Sales and Marketing, R is an invaluable tool for developing marketing strategies and identifying business pain points. Its ability to interpret data and create interactive visualizations through Shiny facilitates effective communication of data and collaboration with colleagues.
+
+Furthermore, R can aid in progress tracking for sales and overall business development, providing insights crucial for decision-making and strategy formulation. By leveraging R's capabilities, I aim to drive impactful change and innovation in my future endeavors.

@@ -9,7 +9,7 @@ editor: visual
 ## Viewcounts
 Overall, the most popular season is **Season 5, released in 2014**, with 17,290,000 viewers only in the US. Conversely, the least popular season is **Season 11** with only 4 million viewers. 
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, error=FALSE, message=FALSE}
 library(tidyverse)
 twd_episodes <-read.csv("the_walking_dead_episodes.csv")
 twd_episodes %>% group_by(season) %>% summarise(
@@ -46,3 +46,5 @@ Some discussions online hypothesised that the ength of Show was the potential do
 
 # Thank you
 Overall, there are multiple factors affecting the success and failure of the show. It is most likely that changes in narrative elements determined its show quality. Other than that, the show remains to have a hold in everyone's heart, and some are looking forward to future expansions in this fictional universe. 
+
+Click ["Reflection"](https://nadia-irdina.github.io/nadia-irdina-local.github.io/Reflection.html)to read more about my experience making this site!

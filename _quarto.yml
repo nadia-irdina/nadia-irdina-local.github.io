@@ -18,6 +18,8 @@ website:
         text: Insights
       - href: Conclusion.qmd
         text: Conclusion
+      - href: Reflection.qmd
+        text: Reflection
 
 format:
   html:
