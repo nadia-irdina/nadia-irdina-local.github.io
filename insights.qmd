@@ -115,7 +115,7 @@ Some writers are also seen collaborating with other writers in various other epi
 
 **Angela Kang** and **Scott M. Gimple** are well-loved show writers. Audiences are most familiar with their work relative to other writers of the show. As seen below, Angela Kang worked on the show for a longer period of time (8 years) compared to Scott (6 years). The shape of their curves are also similar, with Angela's viewcount consistently high between 2013-2017. Meanwhile, the distribution of viewcounts for Scott seem to be at an incline over the years, before a drastic drop in 2017. 
 
-For Scott, there is an abnormally range of viewcount in 2013 despite only working independently on 3 episodes that year. This means that his writing may not be consistently of good quality that year.
+For Scott, there is an abnormal range of viewcount in 2013 despite only working independently on 3 episodes that year. This means that his writing may not be consistently of good quality that year.
 
 ```{r, eval=T,echo=F}
 library(ggplot2)

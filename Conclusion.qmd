@@ -7,7 +7,7 @@ editor: visual
 # Conclusion from the Data Visualisations - Factors affecting popularity of The Walking Dead 
 
 ## Viewcounts
-Overall, the most popular season is **Season 5, released in 2014**, with 17,290,000 viewers only in the US. Conversely, the least popular season is **Season 11** with only 4 million viewers. 
+Overall, the most popular season is **Season 5, released in 2014**, with an average of 14,382,500 viewers only in the US. Conversely, the least popular season is **Season 11** with only 1.6 million viewers. 
 
 ```{r, echo=FALSE, error=FALSE, message=FALSE}
 library(tidyverse)
